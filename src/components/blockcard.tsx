@@ -106,11 +106,11 @@ const Blockcard = () => {
                 <div className="container-card-block">
                     <div className="card_block">
                         <div className="face face1">
-                            <div className="content_block">
-                                <img alt="" src="/images/services/evstore.png" />
+                            <div className="content_block img-center">
+                                <img alt="" src="/images/services/helmets.png" />
                             </div>
                             <div className='content_block'>
-                                <h3>EV Store</h3>
+                                <h3>Helmets</h3>
                             </div>
                         </div>
                         <div className="face face2">
@@ -150,11 +150,11 @@ const Blockcard = () => {
                 <div className="container-card-block">
                     <div className="card_block">
                         <div className="face face1">
-                            <div className="content_block img-center">
-                                <img alt="" src="/images/services/helmets.png" />
+                            <div className="content_block">
+                                <img alt="" src="/images/services/evstore.png" />
                             </div>
                             <div className='content_block'>
-                                <h3>Helmets</h3>
+                                <h3>EV Store</h3>
                             </div>
                         </div>
                         <div className="face face2">
@@ -169,6 +169,28 @@ const Blockcard = () => {
                         </div>
                     </div>
                 </div>
+                {/* <div className="container-card-block">
+                    <div className="card_block">
+                        <div className="face face1">
+                            <div className="content_block">
+                                <img alt="" src="/images/services/services.png" />
+                            </div>
+                            <div className='content_block'>
+                                <h3>4W Service</h3>
+                            </div>
+                        </div>
+                        <div className="face face2">
+                            <div className="content_block">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Quas cum cumque minus iste veritatis
+                                    provident at.
+                                </p>
+                                <a href="/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </Slider>
         </React.Fragment>
     );

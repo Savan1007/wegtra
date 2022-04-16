@@ -620,6 +620,18 @@
     }
 }
 
+.howitwork-container{
+    min-width: 400px;
+}
+
+.dashed{
+    height: 30px;
+    width: 1px;
+    // top: -20px;
+    left:4px;
+    position: relative;
+}
+
 .model__container {
     display: grid;
     place-content: center;
@@ -637,6 +649,10 @@
     }
 }
 
+.number-box{
+    background: rgba(196, 196, 196, 0.11);
+
+}
 .mobile__input {
     display: flex;
     align-items: center;
