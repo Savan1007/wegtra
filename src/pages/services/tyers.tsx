@@ -268,51 +268,6 @@ const WhyUs = () => {
     );
 };
 
-const HowItWorks = () => {
-    return(
-        <div className="m-5">
-            <div className="d-flex justify-content-center">
-                <div className="flex-column justify-content-evenly bg-danger howitwork-container">
-                    <div className="d-flex flex-row justify-content-around">
-                        <div className="font-weight-bold px-4 py-2 number-box">1</div>
-                        <div className="d-flex flex-column">
-                            <div className="font-weight-bold">
-                                Choose required car service
-                            </div>
-                            <div className="">
-                                From Wegtra's broad list of services!
-                            </div>
-                        </div> 
-                    </div>
-                    <div className="mx-5 bg-dark dashed"></div>
-                    <div className="d-flex flex-row justify-content-around">
-                        <div className="font-weight-bold px-4 py-2 number-box">2</div>
-                        <div className="d-flex flex-column min-w-10 bg-warning">
-                            <div className="font-weight-bold">
-                                Schedule the servicing
-                            </div>
-                            <div className="">
-                                We offer dynamic time policies!
-                            </div>
-                        </div> 
-                    </div>
-                    <div className="mx-5 bg-dark dashed"></div>
-                    <div className="d-flex flex-row justify-content-around">
-                        <div className="font-weight-bold px-4 py-2 number-box">3</div>
-                        <div className="d-flex flex-column max-w-10 bg-warning">
-                            <div className="font-weight-bold">
-                                Take your car service
-                            </div>
-                            <div className="">
-                                You can track your car services at real time.
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
 
 const HeroSection = () => {
     const slides = useMemo(() => [
