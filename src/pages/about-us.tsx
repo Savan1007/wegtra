@@ -1,20 +1,19 @@
 // react
-import React from 'react';
+import React from "react";
 // application
-import AppImage from '~/components/shared/AppImage';
-import BlockReviews from '~/components/blocks/BlockReviews';
-import BlockSpace from '~/components/blocks/BlockSpace';
-import BlockTeammates from '~/components/blocks/BlockTeammates';
-import Decor from '~/components/shared/Decor';
-import PageTitle from '~/components/shared/PageTitle';
-import { baseUrl } from '~/services/utils';
+import AppImage from "~/components/shared/AppImage";
+import BlockReviews from "~/components/blocks/BlockReviews";
+import BlockSpace from "~/components/blocks/BlockSpace";
+import BlockTeammates from "~/components/blocks/BlockTeammates";
+import Decor from "~/components/shared/Decor";
+import PageTitle from "~/components/shared/PageTitle";
+import { baseUrl } from "~/services/utils";
+import Testimonial2 from "~/components/testimonial";
 
 function Page() {
     return (
         <React.Fragment>
-            <PageTitle>
-                About Us
-            </PageTitle>
+            <PageTitle>About Us</PageTitle>
 
             <div className="about__us">
                 <div className="about__body">
@@ -22,7 +21,7 @@ function Page() {
                         <div
                             className="about__image-bg"
                             style={{
-                                backgroundImage: `url(${baseUrl('/images/about.jpg')})`,
+                                backgroundImage: `url(${baseUrl("/images/about.png")})`,
                             }}
                         />
                         <Decor className="about__image-decor" type="bottom" />
@@ -31,12 +30,11 @@ function Page() {
                     <div className="about__card">
                         <div className="about__card-title">About Us</div>
                         <div className="about__card-text">
-                            RedParts is an international company with 30 years of history selling spare parts for cars,
-                            trucks and motorcycles.
-                            During our work we managed to create a unique service for the sale and delivery of spare
-                            parts around the world.
+                            Wegtra is a wellknown company with several years of history selling spare parts for cars,
+                            trucks and motorcycles. During our work we managed to create a unique service for the sale
+                            and delivery of spare parts around the world.
                         </div>
-                        <div className="about__card-author">Ryan Ford, CEO RedParts</div>
+                        <div className="about__card-author">Ryan Ford, CEO Wegtra</div>
                         <div className="about__card-signature">
                             <AppImage src="/images/signature.jpg" width="160" height="55" />
                         </div>
@@ -67,7 +65,7 @@ function Page() {
 
             <BlockSpace layout="divider-xl" />
 
-            <BlockReviews />
+            <Testimonial2 />
 
             <BlockSpace layout="before-footer" />
         </React.Fragment>
