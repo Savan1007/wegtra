@@ -82,31 +82,6 @@ function MobileMenuSettings() {
                     )}
                 </MobileMenuPanelController>
             </div>
-            <div className="mobile-menu__setting">
-                <MobileMenuPanelController
-                    label="Currency"
-                    content={<MobileMenuLinks items={currencies} onItemClick={onCurrencyItemClick} />}
-                >
-                    {(open) => (
-                        <button
-                            type="button"
-                            className="mobile-menu__setting-button"
-                            title="Currency"
-                            onClick={open}
-                        >
-                            <span className="mobile-menu__setting-icon mobile-menu__setting-icon--currency">
-                                {currency.symbol}
-                            </span>
-                            <span className="mobile-menu__setting-title">
-                                {currency.name}
-                            </span>
-                            <span className="mobile-menu__setting-arrow">
-                                <ArrowRoundedRight6x9Svg />
-                            </span>
-                        </button>
-                    )}
-                </MobileMenuPanelController>
-            </div>
         </div>
     );
 }

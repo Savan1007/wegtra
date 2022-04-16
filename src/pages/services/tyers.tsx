@@ -284,7 +284,7 @@ const HeroSection = () => {
             url: '/catalog/products',
             desktopImage: '/images/services/tyre-hero1.jpg',
             mobileImage: '/images/services/tyre-hero1.jpg',
-            title: 'Got your <br>tyre flat?',
+            title: 'Got your Tyre <br> Flat?',
             details: 'Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!',
             buttonLabel: 'Shop Now',
         },

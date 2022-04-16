@@ -1,5 +1,5 @@
 // react
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // third-party
 import { FormattedMessage, useIntl } from 'react-intl';
 import classNames from 'classnames';
@@ -172,6 +172,41 @@ export function Search() {
         setSuggestionsIsOpen(false);
         toggleVehiclePicker();
     };
+
+    const getDistanceFromLatLonInKm = (lat1 : any , lon1 : any ,lat2 : any ,lon2 : any) => {
+        var R = 6371; // Radius of the earth in km 
+        var dLat = deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = deg2rad(lon2-lon1); 
+        var a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2)
+          ; 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d;
+      }
+      
+      function deg2rad(deg : any) {
+        return deg * (Math.PI/180)
+      }
+
+    useEffect(()=>{
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position)=>{
+                console.log(position.coords)
+                if(position.coords.latitude <23) {
+                    if(getDistanceFromLatLonInKm(12.972442 , 77.580643 , position.coords.latitude , position.coords.longitude) <
+                        getDistanceFromLatLonInKm(17.387140 , 78.491684 ,  position.coords.latitude , position.coords.longitude)
+                    ) {
+                        setCity("Bangalore")
+                        return;
+                    }
+                    setCity("Hydrabad")
+                }
+            });
+        }
+    } , [])
 
     return (
         <div className="search" ref={rootRef} onBlur={handleRootBlur}>
