@@ -39,6 +39,7 @@ import Search20 from './search-20.svg';
 import Wishlist16 from './wishlist-16.svg';
 import ZoomIn24 from './zoom-in-24.svg';
 import HavaMahal from './hawa-mahal.svg';
+import Charminar from './charminar.svg'
 import IndiaGate from './india-gate.svg';
 import GateWayOfIndia from './gateway-of-india.svg';
 import VidhanSabha from './vidhana-soudha.svg';
@@ -90,6 +91,7 @@ export const HawaMehalSvg = HavaMahal;
 export const IndiaGateSvg = IndiaGate;
 export const GateWayOfIndiaSvg = GateWayOfIndia;
 export const VidhanSabhaSvg = VidhanSabha;
+export const CharminarSvg = Charminar;
 export const VictoriaMemorialSvg = VictoriaMemorial;
 export const ChennaiStationSvg = ChennaiStation;
 export const JhultMinarAhamadabadSvg = JhultMinarAhamadabad;
