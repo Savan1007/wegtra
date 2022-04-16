@@ -1,11 +1,11 @@
 // react
-import React from 'react';
+import React from "react";
 // third-party
-import classNames from 'classnames';
+import classNames from "classnames";
 // application
-import AppLink from '~/components/shared/AppLink';
-import AppSlick, { ISlickProps } from '~/components/shared/AppSlick';
-import { baseUrl } from '~/services/utils';
+import AppLink from "~/components/shared/AppLink";
+import AppSlick, { ISlickProps } from "~/components/shared/AppSlick";
+import { baseUrl } from "~/services/utils";
 
 export interface IBlockSlideshowSlide {
     url: string;
@@ -44,24 +44,21 @@ function BlockSlideshow(props: Props) {
                             <AppLink href={slide.url} key={slideIdx} className="block-slideshow__item">
                                 <span
                                     className={classNames(
-                                        'block-slideshow__item-image',
-                                        'block-slideshow__item-image--desktop',
-                                        'reflect-rtl'
+                                        "block-slideshow__item-image",
+                                        "block-slideshow__item-image--desktop",
+                                        "reflect-rtl"
                                     )}
-                                    style={{ backgroundImage: `url(${baseUrl(slide.desktopImage)})`
-                                }}
+                                    style={{ backgroundImage: `url(${baseUrl(slide.desktopImage)})` }}
                                 />
                                 <span
                                     className={classNames(
-                                        'block-slideshow__item-image',
-                                        'block-slideshow__item-image--mobile',
-                                        'reflect-rtl'
+                                        "block-slideshow__item-image",
+                                        "block-slideshow__item-image--mobile",
+                                        "reflect-rtl"
                                     )}
                                     style={{ backgroundImage: `url(${baseUrl(slide.mobileImage)})` }}
                                 />
-                                {slide.offer && (
-                                    <span className="block-slideshow__item-offer" >{slide.offer}</span>
-                                )}
+                                {slide.offer && <span className="block-slideshow__item-offer">{slide.offer}</span>}
                                 <span
                                     className="block-slideshow__item-title"
                                     dangerouslySetInnerHTML={{ __html: slide.title }}
@@ -70,8 +67,7 @@ function BlockSlideshow(props: Props) {
                                     className="block-slideshow__item-details"
                                     dangerouslySetInnerHTML={{ __html: slide.details }}
                                 />
-                                <button type="button" className="custom-btn btn-12">
-                                    <span>Click!</span>
+                                <button type="button" className="btn btn-dark btn-left">
                                     <span>{slide.buttonLabel}</span>
                                 </button>
                             </AppLink>

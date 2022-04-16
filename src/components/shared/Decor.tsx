@@ -15,11 +15,11 @@ function Decor(props: Props) {
 
     return (
         <div className={rootClasses}>
-            {/* <div className="decor__body">
+            <div className="decor__body">
                 <div className="decor__start" />
                 <div className="decor__end" />
                 <div className="decor__center" />
-            </div> */}
+            </div>
         </div>
     );
 }

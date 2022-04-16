@@ -61,7 +61,33 @@ function Page() {
 
             <BlockSpace layout="divider-xl" />
 
-            <BlockTeammates />
+            <div className="col-md-12 mt-md-4 pt-5">
+                <div className="site-heading text-center">
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                        <h2>Our Mission</h2>
+                        <div style={{ maxWidth: "800px", textAlign: "center" }} className="mt-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo aliquam ullam culpa! Dicta,
+                            similique! Illum nulla iusto sit consectetur iste voluptates id qui nemo adipisci quo ex
+                            accusantium quod asperiores soluta cupiditate, praesentium, ullam dolores possimus dicta aut
+                            laborum, fuga corporis saepe ratione. Fugit beatae, sapiente cum veritatis et blanditiis?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="col-md-12 mt-md-4 pt-5 mt-5">
+                <div className="site-heading text-center">
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                        <h2>Our Vision</h2>
+                        <div style={{ maxWidth: "800px", textAlign: "center" }} className="mt-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo aliquam ullam culpa! Dicta,
+                            similique! Illum nulla iusto sit consectetur iste voluptates id qui nemo adipisci quo ex
+                            accusantium quod asperiores soluta cupiditate, praesentium, ullam dolores possimus dicta aut
+                            laborum, fuga corporis saepe ratione. Fugit beatae, sapiente cum veritatis et blanditiis?
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <BlockSpace layout="divider-xl" />
 

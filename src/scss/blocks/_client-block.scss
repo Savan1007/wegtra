@@ -32,7 +32,7 @@ $local-transition-duration: 0.15s;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid $block-brands-divider;
+    // border: 1px solid $block-brands-divider;
 }
 
 .block-brands__item {
@@ -139,29 +139,32 @@ $local-transition-duration: 0.15s;
     FAQ
 */
 // Logo scroll
-$animationSpeed: 50s;
+$animationSpeed: 20s;
 
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
-    100% {
+    50% {
         transform: translateX(calc(-250px * 7));
+    }
+    100% {
+        transform: translateX(0);
     }
 }
 
 .slider__container {
-    height: 120px;
+    // height: 120px;
     margin: auto;
     overflow: hidden;
     position: relative;
     width: auto;
-    background-color: inherit;
+    // background-color: inherit;
 
     .slide-track {
-        animation: scroll $animationSpeed linear infinite;
+        animation: scroll $animationSpeed linear forwards infinite;
         display: flex;
-        width: calc(250px * 14);
+        width: calc(250px * 6);
     }
     .slide {
         margin: 0 10px;

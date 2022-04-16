@@ -69,25 +69,23 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
                     size: 6,
                     links: [
                         {
-                            title: 'Headlights & Lighting',
+                            title: 'Helmets',
                             url: '/catalog/products',
                             links: [
-                                { title: 'Headlights', url: '/catalog/products' },
-                                { title: 'Tail Lights', url: '/catalog/products' },
-                                { title: 'Fog Lights', url: '/catalog/products' },
-                                { title: 'Turn Signals', url: '/catalog/products' },
-                                { title: 'Switches & Relays', url: '/catalog/products' },
-                                { title: 'Corner Lights', url: '/catalog/products' },
+                                { title: 'Full Face Helmet', url: '/catalog/products' },
+                                { title: 'Half Helmet', url: '/catalog/products' },
+                                { title: 'Flip-up Helmet', url: '/catalog/products' },
+                                { title: 'Women Helmet', url: '/catalog/products' },
+                                { title: 'Junior Helmet', url: '/catalog/products' },
+                                { title: 'Helmet Accessories', url: '/catalog/products' },
+                                { title: 'Helmet Maintainance', url: '/catalog/products' }
                             ],
                         },
                         {
-                            title: 'Brakes & Suspension',
+                            title: 'Windshield',
                             url: '/catalog/products',
                             links: [
-                                { title: 'Brake Discs', url: '/catalog/products' },
-                                { title: 'Wheel Hubs', url: '/catalog/products' },
-                                { title: 'Air Suspension', url: '/catalog/products' },
-                                { title: 'Ball Joints', url: '/catalog/products' },
+                                { title: 'Windshield Accessories', url: '/catalog/products' },
                             ],
                         },
                     ],
@@ -96,25 +94,23 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
                     size: 6,
                     links: [
                         {
-                            title: 'Interior Parts',
+                            title: 'Tyres',
                             url: '/catalog/products',
                             links: [
-                                { title: 'Floor Mats', url: '/catalog/products' },
-                                { title: 'Gauges', url: '/catalog/products' },
-                                { title: 'Consoles & Organizers', url: '/catalog/products' },
-                                { title: 'Mobile Electronics', url: '/catalog/products' },
+                                { title: 'Wheels', url: '/catalog/products' },
+                                { title: 'TPMS', url: '/catalog/products' },
+                                { title: 'Valves & Tubes', url: '/catalog/products' },
+                                { title: 'Tyre Inflators', url: '/catalog/products' },
+                                { title: 'Tyre Accessories', url: '/catalog/products' },
+                                { title: 'Flat Tyre / Puncture Service', url: '/catalog/products' },
                             ],
                         },
                         {
-                            title: 'Engine & Drivetrain',
+                            title: 'Batteries',
                             url: '/catalog/products',
                             links: [
-                                { title: 'Air Filters', url: '/catalog/products' },
-                                { title: 'Oxygen Sensors', url: '/catalog/products' },
-                                { title: 'Heating', url: '/catalog/products' },
-                                { title: 'Exhaust', url: '/catalog/products' },
-                                { title: 'Cranks & Pistons', url: '/catalog/products' },
-                                { title: 'Cargo Accessories', url: '/catalog/products' },
+                                { title: 'Accessories & Parts', url: '/catalog/products' },
+                                { title: 'Maintainance & Jump Start', url: '/catalog/products' }
                             ],
                         },
                     ],
@@ -130,7 +126,7 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
             links: [
                 {
                     title: 'About Team',
-                    url: '/',
+                    url: '/about-us',
                 },
                 {
                     title: 'Career',
