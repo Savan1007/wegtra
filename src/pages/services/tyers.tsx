@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useMemo, useState } from "react";
+import React, { Fragment, useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 import { shopApi } from "~/api";
 import BlockCategories from "~/components/blocks/BlockCategories";
@@ -188,6 +188,49 @@ const Form = () => {
     );
 };
 
+const HowItWorks = () => {
+    const [items, setItems] = useState([
+        {
+            title: "Choose required car service",
+            subTitle: "From wegtra's broad list of services",
+        },
+        {
+            title: "Schedule the servicing",
+            subTitle: "We offer dynamic time policies",
+        },
+        {
+            title: "Track your car services",
+            subTitle: "You can track the services in the real time",
+        },
+    ]);
+    return (
+        <Fragment>
+            <div className="col-md-12 mt-md-4 pt-5">
+                <div className="site-heading text-center">
+                    <h2>How It Works</h2>
+                </div>
+            </div>
+            <div className="how-it-works__outer">
+                <div className="how-it-works__wrapper">
+                    <div className="vertical-line-1"></div>
+                    <div className="vertical-line-2"></div>
+                    {items.map((item, idx) => {
+                        return (
+                            <div className="how-it-works__item">
+                                <div className="indexes">{idx + 1}</div>
+                                <div className="ml-3">
+                                    <b>{item.title}</b>
+                                    <div>{item.subTitle}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </Fragment>
+    );
+};
+
 const WhyUs = () => {
     const data = [
         {
@@ -332,12 +375,7 @@ const TireBrands = () => {
                     <h2>Brands We Sell</h2>
                 </div>
             </div>
-            <div className="brands__image__wrapper">
-                <img src="/images/brands/brand-img-1.png" alt="" />
-                <img src="/images/brands/brand-img-2.png" alt="" />
-                <img src="/images/brands/brand-img-3.png" alt="" />
-                <img src="/images/brands/brand-img-4.png" alt="" />
-            </div>
+            <Client />
         </div>
     );
 };
@@ -507,12 +545,9 @@ const index = () => {
                 </div>
             </div>
             <WhyUs />
-            <div className="col-md-12 mt-md-4">
-                    <div className="site-heading text-center">
-                        <h2 className="m-5">How it Works?</h2>
-                    </div>
-                </div>
+
             <HowItWorks />
+
             <Testimonial2></Testimonial2>
             <TireBrands />
             <div className="col-md-12 mt-md-4 pt-5">
