@@ -1,15 +1,16 @@
+/* eslint-disable */
 // react
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from "react";
 // third-party
-import classNames from 'classnames';
+import classNames from "classnames";
 // application
-import AppLink from '~/components/shared/AppLink';
-import Megamenu from '~/components/header/Megamenu';
-import { ArrowRoundedDown9x6Svg, ArrowRoundedRight7x11Svg, Menu16x12Svg } from '~/svg';
-import { IDepartmentsLink } from '~/interfaces/departments-link';
-import { useGlobalMousedown } from '~/services/hooks';
+import AppLink from "~/components/shared/AppLink";
+import Megamenu from "~/components/header/Megamenu";
+import { ArrowRoundedDown9x6Svg, ArrowRoundedRight7x11Svg, Menu16x12Svg } from "~/svg";
+import { IDepartmentsLink } from "~/interfaces/departments-link";
+import { useGlobalMousedown } from "~/services/hooks";
 // data
-import dataHeaderDepartments from '~/data/headerDepartments';
+import dataHeaderDepartments from "~/data/headerDepartments";
 
 interface Props {
     label: React.ReactNode;
@@ -42,14 +43,17 @@ function Departments(props: Props) {
         setCurrentItem(null);
     }, [setIsOpen, setCurrentItem]);
 
-    useGlobalMousedown((event) => {
-        if (rootRef.current && !rootRef.current.contains(event.target as HTMLElement)) {
-            setIsOpen(false);
-        }
-    }, [setIsOpen, rootRef]);
+    useGlobalMousedown(
+        (event) => {
+            if (rootRef.current && !rootRef.current.contains(event.target as HTMLElement)) {
+                setIsOpen(false);
+            }
+        },
+        [setIsOpen, rootRef]
+    );
 
-    const classes = classNames('departments', {
-        'departments--open': isOpen,
+    const classes = classNames("departments", {
+        "departments--open": isOpen,
     });
 
     return (
@@ -58,9 +62,7 @@ function Departments(props: Props) {
                 <span className="departments__button-icon">
                     <Menu16x12Svg />
                 </span>
-                <span className="departments__button-title">
-                    {label}
-                </span>
+                <span className="departments__button-title">{label}</span>
                 <span className="departments__button-arrow">
                     <ArrowRoundedDown9x6Svg />
                 </span>
@@ -76,18 +78,14 @@ function Departments(props: Props) {
                         />
                         {dataHeaderDepartments.map((item, index) => {
                             const itemHasSubmenu = !!item.submenu;
-                            const itemClasses = classNames('departments__item', {
-                                'departments__item--has-submenu': itemHasSubmenu,
-                                'departments__item--submenu--megamenu': item.submenu?.type === 'megamenu',
-                                'departments__item--hover': item === currentItem,
+                            const itemClasses = classNames("departments__item", {
+                                "departments__item--has-submenu": itemHasSubmenu,
+                                "departments__item--submenu--megamenu": item.submenu?.type === "megamenu",
+                                "departments__item--hover": item === currentItem,
                             });
 
                             return (
-                                <li
-                                    className={itemClasses}
-                                    key={index}
-                                    onMouseEnter={() => handleItemMouseEnter(item)}
-                                >
+                                <li className={itemClasses} key={index} onMouseEnter={() => handleItemMouseEnter(item)}>
                                     <AppLink
                                         className="departments__item-link"
                                         href={item.url}
@@ -118,11 +116,11 @@ function Departments(props: Props) {
                             }
 
                             const itemClasses = classNames(
-                                'departments__megamenu',
+                                "departments__megamenu",
                                 `departments__megamenu--size--${item.submenu.size}`,
                                 {
-                                    'departments__megamenu--open': item === currentItem,
-                                },
+                                    "departments__megamenu--open": item === currentItem,
+                                }
                             );
 
                             return (
