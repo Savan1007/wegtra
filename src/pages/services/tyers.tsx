@@ -268,14 +268,88 @@ const WhyUs = () => {
     );
 };
 
+const HowItWorks = () => {
+    return(
+        <div className="m-5">
+            <div className="d-flex justify-content-center">
+                <div className="flex-column justify-content-evenly bg-danger howitwork-container">
+                    <div className="d-flex flex-row justify-content-around">
+                        <div className="font-weight-bold px-4 py-2 number-box">1</div>
+                        <div className="d-flex flex-column">
+                            <div className="font-weight-bold">
+                                Choose required car service
+                            </div>
+                            <div className="">
+                                From Wegtra's broad list of services!
+                            </div>
+                        </div> 
+                    </div>
+                    <div className="mx-5 bg-dark dashed"></div>
+                    <div className="d-flex flex-row justify-content-around">
+                        <div className="font-weight-bold px-4 py-2 number-box">2</div>
+                        <div className="d-flex flex-column min-w-10 bg-warning">
+                            <div className="font-weight-bold">
+                                Schedule the servicing
+                            </div>
+                            <div className="">
+                                We offer dynamic time policies!
+                            </div>
+                        </div> 
+                    </div>
+                    <div className="mx-5 bg-dark dashed"></div>
+                    <div className="d-flex flex-row justify-content-around">
+                        <div className="font-weight-bold px-4 py-2 number-box">3</div>
+                        <div className="d-flex flex-column max-w-10 bg-warning">
+                            <div className="font-weight-bold">
+                                Take your car service
+                            </div>
+                            <div className="">
+                                You can track your car services at real time.
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 const HeroSection = () => {
+    const slides = useMemo(() => [
+        {
+            url: '/catalog/products',
+            desktopImage: '/images/services/tyre-hero.jpg',
+            mobileImage: '/images/services/tyre-hero.jpg',
+            // offer: '30% OFF',
+            title: 'Choice of tyres at <br /> your doorstep!',
+            details: 'Enjoy a smooth journey and avoid potholes, thanks to the <br /> quality tyre services offered by Wegtra.',
+            buttonLabel: 'Shop Now',
+        },
+        {
+            url: '/catalog/products',
+            desktopImage: '/images/services/tyre-hero1.jpg',
+            mobileImage: '/images/services/tyre-hero1.jpg',
+            title: 'Got your <br>tyre flat?',
+            details: 'Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!',
+            buttonLabel: 'Shop Now',
+        },
+        {
+            url: '/catalog/products',
+            desktopImage: '/images/slides/3.jpg',
+            mobileImage: '/images/slides/3.jpg',
+            // offer: '30% OFF',
+            title: 'Big Choice Of <br>Wheel Tires',
+            details: 'Any size and diameter, with or without spikes, <br>summer or winter, rain or snow.',
+            buttonLabel: 'Shop Now',
+        },
+    ], []);
     return (
         <React.Fragment>
-            <div
+            {/* <div
                 className="hero-x"
                 style={{
-                    background: `url(${baseUrl("/images/services/tyre-hero.png")})`,
-                    backgroundRepeat: "no-repeat",
+                    background: `url(${baseUrl("/images/services/tyre-hero.jpg")})`,
+                    backgroundRepeat: "no-repeat"
                 }}
             >
                 <img alt="" />
@@ -287,7 +361,8 @@ const HeroSection = () => {
                     </p>
                     <button className="btn btn-dark rounded">Shop Now</button>
                 </div>
-            </div>
+            </div> */}
+            <BlockSlideshow slides={slides} ></BlockSlideshow>
         </React.Fragment>
     );
 };

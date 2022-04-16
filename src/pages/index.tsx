@@ -151,12 +151,14 @@ function Page() {
             <BlockBanners />
             <BlockSpace layout="divider-nl" />
             <BlockSpace layout="divider-nl" />
-            <BlockBanners />
-            <BlockSpace layout="divider-nl" />
             <BlockSale
                 products={blockSale.data}
                 loading={blockSale.isLoading}
             />
+            <BlockSpace layout="divider-nl" />
+            <BlockSpace layout="divider-nl" />
+            <BlockBanners />
+            <BlockSpace layout="divider-nl" />
             <BlockSpace layout="divider-nl" />
             <BlockPosts
                 blockTitle={intl.formatMessage({ id: 'HEADER_LATEST_NEWS' })}

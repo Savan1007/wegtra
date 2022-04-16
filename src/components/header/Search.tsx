@@ -13,7 +13,7 @@ import url from '~/services/url';
 import VehicleForm from '~/components/shared/VehicleForm';
 import {
     Search20Svg, IndiaGateSvg, GateWayOfIndiaSvg, VidhanSabhaSvg,
-    VictoriaMemorialSvg, ChennaiStationSvg, HawaMehalSvg,
+    VictoriaMemorialSvg, ChennaiStationSvg, HawaMehalSvg, CharminarSvg,
 } from '~/svg';
 
 import { IProduct } from '~/interfaces/product';
@@ -310,6 +310,16 @@ export function Search() {
                         <hr />
                         <h6 className="text-secondary title-select-city">POPULAR CITY</h6>
                         <div className="city-flex">
+                            <div className="city-card" onClick={handleCityClick} data-city="Bangalore" aria-hidden="true">
+                                <VidhanSabhaSvg data-city="Bangalore" />
+                                <p data-city="Bangalore">Bangalore</p>
+                            </div>
+                            <div className="city-card" onClick={handleCityClick} data-city="Jaipur" aria-hidden="true">
+                                {/* <img src='./charminar.png' /> */}
+                                <CharminarSvg data-city="Hyderabad" />
+                                <p data-city="Hyderabad">Hyderabad</p>
+                            </div>
+                            
                             <div className="city-card" onClick={handleCityClick} data-city="Jaipur" aria-hidden="true">
                                 <HawaMehalSvg data-city="Jaipur" />
                                 <p data-city="Jaipur">Jaipur</p>
@@ -321,10 +331,6 @@ export function Search() {
                             <div className="city-card" onClick={handleCityClick} data-city="Mumbai" aria-hidden="true">
                                 <GateWayOfIndiaSvg data-city="Mumbai" />
                                 <p data-city="Mumbai">Mumbai</p>
-                            </div>
-                            <div className="city-card" onClick={handleCityClick} data-city="Bangalore" aria-hidden="true">
-                                <VidhanSabhaSvg data-city="Bangalore" />
-                                <p data-city="Bangalore">Bangalore</p>
                             </div>
                             <div className="city-card" onClick={handleCityClick} data-city="Kolkata" aria-hidden="true">
                                 <VictoriaMemorialSvg data-city="Kolkata" />
