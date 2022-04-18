@@ -1,192 +1,10 @@
 /* eslint-disable */
-import React, { Fragment, useMemo, useState } from "react";
-import { useIntl } from "react-intl";
-import { shopApi } from "~/api";
-import BlockCategories from "~/components/blocks/BlockCategories";
-import BlockProductsCarousel from "~/components/blocks/BlockProductsCarousel";
+import React, { Fragment, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import BlockSlideshow from "~/components/blocks/BlockSlideshow";
 import Fquestions from "~/components/blocks/FAQ";
 import Client from "~/components/client";
-import { baseUrl } from "~/services/utils";
-import { useDeferredData, useProductTabs } from "~/services/hooks";
-import classNames from "classnames";
-import { url } from "inspector";
 import AppLink from "~/components/shared/AppLink";
-import { Interface } from "readline";
-import Testimonial2 from "~/components/testimonial";
-
-const Form = () => {
-    const [byVarient, setByVarient] = useState(true);
-    return (
-        <div className="form-body">
-            <div className="row">
-                <div className="form-holder">
-                    <div className="form-content">
-                        <div className="form-items">
-                            <h3>Find Tyers Of Your Performance</h3>
-                            <div className="col-md-12 mt-3">
-                                <label className="mb-3 mr-1" htmlFor="gender">
-                                    Vehicle Type:{" "}
-                                </label>
-                                <label className="btn btn-primary m-1" htmlFor="male">
-                                    <input
-                                        type="radio"
-                                        className="btn-check"
-                                        name="gender"
-                                        id="male"
-                                        autoComplete="off"
-                                        required
-                                    />
-                                    &nbsp; Car
-                                </label>
-                                <label className="btn btn-primary m-1" htmlFor="female">
-                                    <input
-                                        type="radio"
-                                        className="btn-check"
-                                        name="gender"
-                                        id="female"
-                                        autoComplete="off"
-                                        required
-                                    />
-                                    &nbsp; Bike
-                                </label>
-                                <label className="btn btn-primary m-1" htmlFor="secret">
-                                    <input
-                                        type="radio"
-                                        className="btn-check"
-                                        name="gender"
-                                        id="secret"
-                                        autoComplete="off"
-                                        required
-                                    />
-                                    &nbsp; Truck
-                                </label>
-                                <div className="valid-feedback mv-up">You selected vehicle!</div>
-                                <div className="invalid-feedback mv-up">Please select a vehicle!</div>
-                            </div>
-                            <div className="col">
-                                <button
-                                    type="button"
-                                    className="btn btn-primary btn-sm m-1"
-                                    onClick={() => {
-                                        setByVarient(true);
-                                    }}
-                                >
-                                    Select By Modal
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-primary btn-sm m-1"
-                                    onClick={() => {
-                                        setByVarient(false);
-                                    }}
-                                >
-                                    Select By TyerSize
-                                </button>
-                            </div>
-                            {byVarient ? (
-                                <form className="requires-validation">
-                                    <div className="col-md-12">
-                                        <input
-                                            className="form-control"
-                                            type="text"
-                                            name="name"
-                                            placeholder="Keywords"
-                                        />
-                                    </div>
-                                    <div className="col-md-12">
-                                        <select className="form-select mt-3" required>
-                                            <option selected disabled value="">
-                                                Brand
-                                            </option>
-                                            <option value="jweb">Maruti Suzuki</option>
-                                            <option value="sweb">MRF</option>
-                                            <option value="pmanager">Tarzen</option>
-                                        </select>
-                                        <div className="valid-feedback">You selected a brand!</div>
-                                        <div className="invalid-feedback">Please select a brand!</div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <select className="form-select mt-3" required>
-                                            <option selected disabled value="">
-                                                Modal
-                                            </option>
-                                            <option value="jweb">MX2103</option>
-                                            <option value="sweb">UI20</option>
-                                            <option value="pmanager">MRF506</option>
-                                        </select>
-                                        <div className="valid-feedback">You selected a modal!</div>
-                                        <div className="invalid-feedback">Please select a modal</div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <select className="form-select mt-3" required>
-                                            <option selected disabled value="">
-                                                Varient
-                                            </option>
-                                            <option value="jweb">VAR-1</option>
-                                            <option value="sweb">VAR-2</option>
-                                            <option value="pmanager">VAR-3</option>
-                                        </select>
-                                        <div className="valid-feedback">You selected a varient!</div>
-                                        <div className="invalid-feedback">Please select a varient!</div>
-                                    </div>
-                                    <div className="form-button mt-3">
-                                        <button id="submit" type="submit" className="btn btn-primary m-3">
-                                            Search Now
-                                        </button>
-                                    </div>
-                                </form>
-                            ) : (
-                                <form className="requires-validation">
-                                    <div className="col-md-12">
-                                        <input
-                                            className="form-control"
-                                            type="text"
-                                            name="name"
-                                            placeholder="Keywords"
-                                        />
-                                    </div>
-                                    <div className="col-md-12">
-                                        <input className="form-control" type="text" name="name" placeholder="Width" />
-                                    </div>
-                                    <div className="col-md-12">
-                                        <select className="form-select mt-3" required>
-                                            <option selected disabled value="">
-                                                Profile
-                                            </option>
-                                            <option value="jweb">MX2103</option>
-                                            <option value="sweb">UI20</option>
-                                            <option value="pmanager">MRF506</option>
-                                        </select>
-                                        <div className="valid-feedback">You selected a modal!</div>
-                                        <div className="invalid-feedback">Please select a modal</div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <select className="form-select mt-3" required>
-                                            <option selected disabled value="">
-                                                Rims
-                                            </option>
-                                            <option value="jweb">VAR-1</option>
-                                            <option value="sweb">VAR-2</option>
-                                            <option value="pmanager">VAR-3</option>
-                                        </select>
-                                        <div className="valid-feedback">You selected a varient!</div>
-                                        <div className="invalid-feedback">Please select a varient!</div>
-                                    </div>
-                                    <div className="form-button mt-3">
-                                        <button id="submit" type="submit" className="btn btn-primary m-3">
-                                            Search Now
-                                        </button>
-                                    </div>
-                                </form>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+import SliderTestimonial from "~/components/testimonial";
 
 const HowItWorks = () => {
     const [items, setItems] = useState([
@@ -203,20 +21,19 @@ const HowItWorks = () => {
             subTitle: "You can track the services in the real time",
         },
     ]);
+
     return (
         <Fragment>
             <div className="col-md-12 mt-md-4 pt-5">
                 <div className="site-heading text-center">
-                    <h2>How It Works</h2>
+                    <h2>How It Works?</h2>
                 </div>
             </div>
             <div className="how-it-works__outer">
                 <div className="how-it-works__wrapper">
-                    <div className="vertical-line-1"></div>
-                    <div className="vertical-line-2"></div>
                     {items.map((item, idx) => {
                         return (
-                            <div className="how-it-works__item">
+                            <div className={`how-it-works__item ${"active-item-animate-" + idx}`}>
                                 <div className="indexes">{idx + 1}</div>
                                 <div className="ml-3">
                                     <b>{item.title}</b>
@@ -268,36 +85,39 @@ const WhyUs = () => {
     );
 };
 
-
 const HeroSection = () => {
-    const slides = useMemo(() => [
-        {
-            url: '/catalog/products',
-            desktopImage: '/images/services/tyre-hero.jpg',
-            mobileImage: '/images/services/tyre-hero.jpg',
-            // offer: '30% OFF',
-            title: 'Choice of tyres at <br /> your doorstep!',
-            details: 'Enjoy a smooth journey and avoid potholes, thanks to the <br /> quality tyre services offered by Wegtra.',
-            buttonLabel: 'Shop Now',
-        },
-        {
-            url: '/catalog/products',
-            desktopImage: '/images/services/tyre-hero1.jpg',
-            mobileImage: '/images/services/tyre-hero1.jpg',
-            title: 'Got your Tyre <br> Flat?',
-            details: 'Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!',
-            buttonLabel: 'Shop Now',
-        },
-        {
-            url: '/catalog/products',
-            desktopImage: '/images/slides/3.jpg',
-            mobileImage: '/images/slides/3.jpg',
-            // offer: '30% OFF',
-            title: 'Big Choice Of <br>Wheel Tires',
-            details: 'Any size and diameter, with or without spikes, <br>summer or winter, rain or snow.',
-            buttonLabel: 'Shop Now',
-        },
-    ], []);
+    const slides = useMemo(
+        () => [
+            {
+                url: "/catalog/products",
+                desktopImage: "/images/services/tyre-hero.jpg",
+                mobileImage: "/images/services/tyre-hero.jpg",
+                // offer: '30% OFF',
+                title: "Choice of tyres at <br /> your doorstep!",
+                details:
+                    "Enjoy a smooth journey and avoid potholes, thanks to the <br /> quality tyre services offered by Wegtra.",
+                buttonLabel: "Shop Now",
+            },
+            {
+                url: "/catalog/products",
+                desktopImage: "/images/services/tyre-hero1.jpg",
+                mobileImage: "/images/services/tyre-hero1.jpg",
+                title: "Got your Tyre <br> Flat?",
+                details: "Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!",
+                buttonLabel: "Shop Now",
+            },
+            {
+                url: "/catalog/products",
+                desktopImage: "/images/slides/3.jpg",
+                mobileImage: "/images/slides/3.jpg",
+                // offer: '30% OFF',
+                title: "Big Choice Of <br>Wheel Tires",
+                details: "Any size and diameter, with or without spikes, <br>summer or winter, rain or snow.",
+                buttonLabel: "Shop Now",
+            },
+        ],
+        []
+    );
     return (
         <React.Fragment>
             {/* <div
@@ -317,7 +137,7 @@ const HeroSection = () => {
                     <button className="btn btn-dark rounded">Shop Now</button>
                 </div>
             </div> */}
-            <BlockSlideshow slides={slides} ></BlockSlideshow>
+            <BlockSlideshow slides={slides}></BlockSlideshow>
         </React.Fragment>
     );
 };
@@ -382,7 +202,7 @@ const SearchByModel = () => {
         <div className="model__container">
             <div className="py-2 mx-3">Search by Model</div>
             <form action="#">
-                <div className="flex g-2">
+                <div className="flex g-2 sm-flex-column">
                     <select
                         className="form-control p-2 m-3"
                         name="brand"
@@ -423,18 +243,18 @@ const SearchByModel = () => {
                         })}
                     </select>
                 </div>
-                <div className="mobile__input m-3 pb-5">
+                <div className="mobile__input m-3 pb-2">
                     <input type="text" className="form-control" placeholder="Enter Mobile Number..." required />
-                    <AppLink
-                        href={`/catalog/tires-wheels/products${
-                            selectedConfig?.brand !== undefined ? "/?filter_brand=" + selectedConfig?.brand : ""
-                        }`}
-                    >
-                        <button type="submit" className="btn ml-md-5 btn-dark">
-                            SEARCH
-                        </button>
-                    </AppLink>
                 </div>
+                <AppLink
+                    href={`/catalog/tires-wheels/products${
+                        selectedConfig?.brand !== undefined ? "/?filter_brand=" + selectedConfig?.brand : ""
+                    }`}
+                >
+                    <button type="submit" className="btn m-3 mb-sm-5 btn-dark">
+                        SEARCH
+                    </button>
+                </AppLink>
             </form>
         </div>
     );
@@ -485,7 +305,7 @@ const index = () => {
         <React.Fragment>
             <div className="p-md-5">
                 <HeroSection />
-                <div className="col-md-12 mt-md-4">
+                <div className="col-md-12 mt-md-4 pt-sm-5">
                     <div className="site-heading text-center">
                         <h2>Find Tyres by Your Preference</h2>
                     </div>
@@ -493,7 +313,7 @@ const index = () => {
                 <VehicleChooser />
                 <SearchByModel />
 
-                <div className="col-md-12 mt-md-4">
+                <div className="col-md-12 mt-md-4 pt-sm-5 mt-4">
                     <div className="site-heading text-center">
                         <h2>Why Us?</h2>
                     </div>
@@ -503,8 +323,7 @@ const index = () => {
 
             <HowItWorks />
 
-            <Testimonial2 img="/images/testimonials/t-1.jpg" text="“The Quality and Delivery is always on time, being a professional service I value and love their
-                        service a lot”" customerName="Ryan Wels" customerDetail="CUSTOMER" />
+            <SliderTestimonial />
             <TireBrands />
             <div className="col-md-12 mt-md-4 pt-5">
                 <div className="site-heading text-center">

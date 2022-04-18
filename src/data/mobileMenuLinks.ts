@@ -5,93 +5,98 @@ const dataMobileMenuLinks: IMobileMenuLink[] = [
     {
         title: 'Home',
         url: '/',
-        submenu: [
-            { title: 'Home One', url: '/' },
-            { title: 'Home Two', url: '/demo/home-two' },
-            {
-                title: 'Header Spaceship',
-                url: '/demo/header-spaceship-variant-one',
-                submenu: [
-                    { title: 'Variant One', url: '/demo/header-spaceship-variant-one' },
-                    { title: 'Variant Two', url: '/demo/header-spaceship-variant-two' },
-                    { title: 'Variant Three', url: '/demo/header-spaceship-variant-three' },
-                ],
-            },
-            {
-                title: 'Header Classic',
-                url: '/demo/header-classic-variant-one',
-                submenu: [
-                    { title: 'Variant One', url: '/demo/header-classic-variant-one' },
-                    { title: 'Variant Two', url: '/demo/header-classic-variant-two' },
-                    { title: 'Variant Three', url: '/demo/header-classic-variant-three' },
-                    { title: 'Variant Four', url: '/demo/header-classic-variant-four' },
-                    { title: 'Variant Five', url: '/demo/header-classic-variant-five' },
-                ],
-            },
-            {
-                title: 'Mobile Header',
-                url: '/demo/mobile-header-variant-one',
-                submenu: [
-                    { title: 'Variant One', url: '/demo/mobile-header-variant-one' },
-                    { title: 'Variant Two', url: '/demo/mobile-header-variant-two' },
-                ],
-            },
-        ],
+        
     },
     {
         title: 'Shop',
         url: '/demo/shop/shop-grid-4-sidebar',
         submenu: [
             {
-                title: 'Category',
+                title: 'Helmets',
                 url: '/demo/shop/category-columns-4-sidebar',
                 submenu: [
-                    { title: '3 Columns Sidebar', url: '/demo/shop/category-columns-3-sidebar' },
-                    { title: '4 Columns Sidebar', url: '/demo/shop/category-columns-4-sidebar' },
-                    { title: '5 Columns Sidebar', url: '/demo/shop/category-columns-5-sidebar' },
-                    { title: '4 Columns Full', url: '/demo/shop/category-columns-4-full' },
-                    { title: '5 Columns Full', url: '/demo/shop/category-columns-5-full' },
-                    { title: '6 Columns Full', url: '/demo/shop/category-columns-6-full' },
-                    { title: '7 Columns Full', url: '/demo/shop/category-columns-7-full' },
-                    { title: 'Right Sidebar', url: '/demo/shop/category-right-sidebar' },
+                    { title: 'Full Face Helmet', url: '/catalog/products' },
+                    { title: 'Half Helmet', url: '/catalog/products' },
+                    { title: 'Flip-up Helmet', url: '/catalog/products' },
+                    { title: 'Women Helmet', url: '/catalog/products' },
+                    { title: 'Junior Helmet', url: '/catalog/products' },
+                    { title: 'Helmet Accessories', url: '/catalog/products' },
+                    { title: 'Helmet Maintainance', url: '/catalog/products' }
                 ],
             },
             {
-                title: 'Shop Grid',
+                title: 'Windshield',
                 url: '/demo/shop/shop-grid-4-sidebar',
                 submenu: [
-                    { title: '6 Columns Full', url: '/demo/shop/shop-grid-6-full' },
-                    { title: '5 Columns Full', url: '/demo/shop/shop-grid-5-full' },
-                    { title: '4 Columns Full', url: '/demo/shop/shop-grid-4-full' },
-                    { title: '4 Columns Sidebar', url: '/demo/shop/shop-grid-4-sidebar' },
-                    { title: '3 Columns Sidebar', url: '/demo/shop/shop-grid-3-sidebar' },
+                    { title: 'Windshield Accessories', url: '/catalog/products' },
                 ],
             },
-            { title: 'Shop List', url: '/demo/shop/shop-list' },
-            { title: 'Shop Table', url: '/demo/shop/shop-table' },
-            { title: 'Shop Right Sidebar', url: '/demo/shop/shop-right-sidebar' },
             {
-                title: 'Shop Navigation',
+                title: 'Tyres',
                 url: '/demo/shop/shop-cursor-navigation',
                 submenu: [
-                    { title: 'Cursor-Based', url: '/demo/shop/shop-cursor-navigation' },
-                    { title: 'Page-Based', url: '/demo/shop/shop-page-navigation' },
+                    { title: 'Wheels', url: '/catalog/products' },
+                    { title: 'TPMS', url: '/catalog/products' },
+                    { title: 'Valves & Tubes', url: '/catalog/products' },
+                    { title: 'Tyre Inflators', url: '/catalog/products' },
+                    { title: 'Tyre Accessories', url: '/catalog/products' },
+                    { title: 'Flat Tyre / Puncture Service', url: '/catalog/products' },
                 ],
             },
             {
-                title: 'Product',
+                title: 'Batteries',
                 url: '/demo/shop/product-full',
                 submenu: [
-                    { title: 'Full Width', url: '/demo/shop/product-full' },
-                    { title: 'Left Sidebar', url: '/demo/shop/product-sidebar' },
+                    { title: 'Accessories & Parts', url: '/catalog/products' },
+                    { title: 'Maintainance & Jump Start', url: '/catalog/products' }
                 ],
             },
-            { title: 'Cart', url: '/cart' },
-            { title: 'Checkout', url: '/cart/checkout' },
-            { title: 'Order Success', url: '/demo/shop/order-success' },
-            { title: 'Wishlist', url: '/wishlist' },
-            { title: 'Compare', url: '/compare' },
-            { title: 'Track Order', url: '/track-order' },
+        ],
+    },
+    {
+        title: 'Services',
+        url: '/services',
+        submenu: [
+            {
+                title: 'Tyers',
+                url: '/services/tyers',
+            },
+            {
+                title: 'Battery',
+                url: '/services/battery',
+            },
+            {
+                title: 'Windshield',
+                url: '/services/windshield',
+            },
+            {
+                title: 'Helmets',
+                url: '/services/helmet',
+            },
+            {
+                title: '2W service',
+                url: '/servises/2w',
+            },
+            {
+                title: 'EV store',
+                url: '/service/ev',
+            },
+            {
+                title: '4W service',
+                url: '/service/4w',
+            },
+            {
+                title: 'RTO service',
+                url: '/service/rto',
+            },
+            {
+                title: 'PDI',
+                url: '/service/instructor',
+            },
+            {
+                title: 'TRAINING',
+                url: '/service/training',
+            },
         ],
     },
     {
@@ -161,20 +166,15 @@ const dataMobileMenuLinks: IMobileMenuLink[] = [
             { title: 'Change Password', url: '/account/password' },
         ],
     },
-    {
-        title: 'Pages',
-        url: '/terms',
-        submenu: [
-            { title: 'About Us', url: '/about-us' },
-            { title: 'Contact Us v1', url: '/demo/site/contact-us-v1' },
-            { title: 'Contact Us v2', url: '/demo/site/contact-us-v2' },
-            { title: '404', url: '/demo/site/not-found' },
-            { title: 'Terms And Conditions', url: '/terms' },
-            { title: 'FAQ', url: '/faq' },
-            { title: 'Components', url: '/demo/site/components' },
-            { title: 'Typography', url: '/demo/site/typography' },
-        ],
-    },
+    // {
+    //     title: 'Select City',
+    //     url: '/terms',
+    //     submenu: [
+    //         { title: 'Banglore', url: '/about-us' },
+    //         { title: 'Hydrabad', url: '/demo/site/contact-us-v1' },
+    //     ],
+    // },
+    
     
 ];
 

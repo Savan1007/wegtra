@@ -273,3 +273,12 @@
     align-self: flex-start;
     // width: 15px;
 }
+
+@media (max-width: 600px) {
+    .btn-left {
+        align-self: center;
+    }
+    .block-slideshow__item-title {
+        margin: 15px 0;
+    }
+}
