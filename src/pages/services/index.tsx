@@ -1,16 +1,15 @@
-import React from 'react';
-import Testimonial from '~/components/testimonial';
-import Fquestions from '~/components/blocks/FAQ';
-import Card from '~/components/card';
+import React from "react";
+import Testimonial from "~/components/testimonial";
+import Fquestions from "~/components/blocks/FAQ";
+import Card from "~/components/card";
 
 const index = () => (
     <div>
         <div className="services-heading">
             <h1>Services We Provide</h1>
             <p>
-                Agumentik Consultancy is here to provide you with
-                the solution to your complications and to install wings
-                to your Business with our following service.
+                Agumentik Consultancy is here to provide you with the solution to your complications and to install
+                wings to your Business with our following service.
             </p>
         </div>
         <Card />
@@ -19,11 +18,9 @@ const index = () => (
             <div className="inner-container">
                 <h1>Why Us?</h1>
                 <p className="text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Doloribus velit ducimus, enim inventore earum, eligendi
-                    nostrum pariatur necessitatibus eius dicta a voluptates
-                    sit deleniti autem error eos totam nisi neque voluptates
-                    sit deleniti autem error eos totam nisi neque.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus velit ducimus, enim inventore
+                    earum, eligendi nostrum pariatur necessitatibus eius dicta a voluptates sit deleniti autem error eos
+                    totam nisi neque voluptates sit deleniti autem error eos totam nisi neque.
                 </p>
                 <div className="skills">
                     <span>24/7 Suppot</span>
