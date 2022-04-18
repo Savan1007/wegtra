@@ -503,7 +503,8 @@ const index = () => {
 
             <HowItWorks />
 
-            <Testimonial2></Testimonial2>
+            <Testimonial2 img="/images/testimonials/t-1.jpg" text="“The Quality and Delivery is always on time, being a professional service I value and love their
+                        service a lot”" customerName="Ryan Wels" customerDetail="CUSTOMER" />
             <TireBrands />
             <div className="col-md-12 mt-md-4 pt-5">
                 <div className="site-heading text-center">

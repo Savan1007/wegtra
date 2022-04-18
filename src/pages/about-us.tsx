@@ -91,7 +91,8 @@ function Page() {
 
             <BlockSpace layout="divider-xl" />
 
-            <Testimonial2 />
+            <Testimonial2 img="/images/testimonials/t-1.jpg" text="“The Quality and Delivery is always on time, being a professional service I value and love their
+                        service a lot”" customerName="Ryan Wels" customerDetail="CUSTOMER" />
 
             <BlockSpace layout="before-footer" />
         </React.Fragment>

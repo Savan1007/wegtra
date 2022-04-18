@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect } from "react";
 import $ from "jquery";
+import Slider from "react-slick";
 
 const Testimonial = () => {
     useEffect(() => {
@@ -159,7 +160,15 @@ const Testimonial = () => {
     );
 };
 
-const Testimonial2 = () => {
+
+const Testimonial2 = (props: any) => {
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
     return (
         <div>
             <div className="col-md-12 mt-md-4 pt-5">
@@ -169,18 +178,17 @@ const Testimonial2 = () => {
             </div>
             <div className="testimonial__wrapper">
                 <div className="testimonial__img">
-                    <img src="/images/testimonials/t-1.jpg" alt="" />
+                    <img src={props.img} alt="" />
                 </div>
                 <div className="d-flex flex-column">
                     <p>
-                        “The Quality and Delivery is always on time, being a professional service I value and love their
-                        service a lot”
+                        {props.text}
                     </p>
                 </div>
 
                 <div className="testimonial__author">
-                    <p>Ryan Wels</p>
-                    <span>CUSTOMER</span>
+                    <p>{props.customerName}</p>
+                    <span>{props.customerDetail}</span>
                 </div>
             </div>
         </div>

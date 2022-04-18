@@ -167,7 +167,8 @@ function Page() {
             />
             <BlockSpace layout="divider-nl" className="d-xl-block d-none" />
             <BlockProductsColumns columns={columns} />
-            <Testimonial />
+            <Testimonial img="/images/testimonials/t-1.jpg" text="“The Quality and Delivery is always on time, being a professional service I value and love their
+                        service a lot”" customerName="Ryan Wels" customerDetail="CUSTOMER"/>
         </React.Fragment>
     );
 }

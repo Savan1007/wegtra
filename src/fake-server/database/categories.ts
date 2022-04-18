@@ -73,7 +73,7 @@ const shopCategoriesDef: ICategoryDef[] = [
     {
         name: 'Helmets',
         slug: 'helmets',
-        image: '/images/categories/headlights.png',
+        image: '/images/categories/helmets.png',
         items: 131,
         children: [
             { name: 'Full Face Helmet', slug: 'turn-signals' },
@@ -88,7 +88,7 @@ const shopCategoriesDef: ICategoryDef[] = [
     {
         name: 'Windshield',
         slug: 'windshield',
-        image: '/images/categories/fuelsystem.png',
+        image: '/images/categories/windshield.png',
         items: 356,
         children: [
             { name: 'Windshield Accessories', slug: 'fuel-pumps' },
@@ -97,7 +97,7 @@ const shopCategoriesDef: ICategoryDef[] = [
     {
         name: 'Tyres',
         slug: 'tyres',
-        image: '/images/categories/bodyparts.png',
+        image: '/images/categories/tyres.jpg',
         items: 54,
         children: [
             { name: 'Wheels', slug: 'bumpers' },
@@ -110,7 +110,7 @@ const shopCategoriesDef: ICategoryDef[] = [
     {
         name: 'Batteries',
         slug: 'batteries',
-        image: '/images/categories/interiorparts.png',
+        image: '/images/categories/batteries.png',
         items: 274,
         children: [
             { name: 'Accessories & Parts', slug: 'dashboards' },
