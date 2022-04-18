@@ -75,12 +75,10 @@ function Page() {
 
     const popularCategories = useDeferredData(() => shopApi.getCategories({
         slugs: [
-            'headlights-lighting',
-            'fuel-system',
-            'body-parts',
-            'interior-parts',
-            'tires-wheels',
-            'engine-drivetrain',
+            'helmets',
+            'windshield',
+            'tyres',
+            'batteries'
         ],
         depth: 1,
     }), []);
