@@ -620,15 +620,15 @@
     }
 }
 
-.howitwork-container{
+.howitwork-container {
     min-width: 400px;
 }
 
-.dashed{
+.dashed {
     height: 30px;
     width: 1px;
     // top: -20px;
-    left:4px;
+    left: 4px;
     position: relative;
 }
 
@@ -649,9 +649,8 @@
     }
 }
 
-.number-box{
+.number-box {
     background: rgba(196, 196, 196, 0.11);
-
 }
 .mobile__input {
     display: flex;
@@ -659,12 +658,6 @@
 
     input {
         max-width: 300px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .vehicle__chooser {
-        flex-direction: column;
     }
 }
 
@@ -692,6 +685,7 @@
     justify-content: space-between;
 
     .how-it-works__item {
+        opacity: 1;
         display: flex;
         width: 400px;
         align-items: center;
@@ -712,5 +706,78 @@
             background-color: rgba(128, 128, 128, 0.082);
             z-index: 10;
         }
+    }
+}
+
+.active-item-animate-0 {
+    opacity: 0;
+    animation: animate 1s ease-in-out 0s 1 forwards;
+}
+
+.active-item-animate-1 {
+    // display: none !important;
+    animation: animate2 1s ease-in-out 0s 1 forwards;
+}
+
+.active-item-animate-2 {
+    // display: none !important;
+    animation: animate3 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(150px);
+    }
+    100% {
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(200px);
+    }
+    100% {
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(250px);
+    }
+    100% {
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .vehicle__chooser {
+        flex-direction: column;
+    }
+    .sm-flex-column {
+        flex-direction: column;
+    }
+    .model__container {
+        margin-top: 20px;
+        .flex {
+            max-width: 600px;
+            min-width: 250px;
+        }
+        .flex select {
+            max-width: 300px !important;
+        }
+    }
+    .pt-sm-5 {
+        padding-top: 20px;
+    }
+    .whyus__container {
+        .flex {
+            flex-direction: column;
+            max-width: 600px;
+            min-width: 250px;
+        }
+    }
+    .block-slideshow__item-title {
+        font-size: 35px;
+        line-height: 50px;
+        padding-bottom: 30px;
     }
 }
