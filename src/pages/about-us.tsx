@@ -9,6 +9,7 @@ import Decor from "~/components/shared/Decor";
 import PageTitle from "~/components/shared/PageTitle";
 import { baseUrl } from "~/services/utils";
 import Testimonial2 from "~/components/testimonial";
+import SliderTestimonial from "~/components/testimonial";
 
 function Page() {
     return (
@@ -91,8 +92,7 @@ function Page() {
 
             <BlockSpace layout="divider-xl" />
 
-            <Testimonial2 img="/images/testimonials/t-1.jpg" text="“The Quality and Delivery is always on time, being a professional service I value and love their
-                        service a lot”" customerName="Ryan Wels" customerDetail="CUSTOMER" />
+            <SliderTestimonial />
 
             <BlockSpace layout="before-footer" />
         </React.Fragment>
