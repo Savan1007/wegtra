@@ -103,6 +103,13 @@
     .site-footer__payments {
         margin-top: 12px;
     }
+    .footer__hide{
+        max-width: 35px;
+        max-height: 35px;
+    }
+    .sm-center{
+        text-align: center;
+    }
 }
 
 .footer__hide {
@@ -110,7 +117,7 @@
     position: relative;
     right: 50px;
     top: -25px;
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(0, 0, 0);
     height: 50px;
     width: 50px;
     border-radius: 50%;
