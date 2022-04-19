@@ -90,9 +90,8 @@ const HeroSection = () => {
         () => [
             {
                 url: "/catalog/products",
-                desktopImage: "/images/services/tyre-hero.jpg",
-                mobileImage: "/images/services/tyre-hero.jpg",
-                // offer: '30% OFF',
+                desktopImage: "/images/slides/tyre/1.jpg",
+                mobileImage: "/images/slides/tyre/2.jpg",
                 title: "Choice of tyres at <br /> your doorstep!",
                 details:
                     "Enjoy a smooth journey and avoid potholes, thanks to the <br /> quality tyre services offered by Wegtra.",
@@ -100,17 +99,16 @@ const HeroSection = () => {
             },
             {
                 url: "/catalog/products",
-                desktopImage: "/images/services/tyre-hero1.jpg",
-                mobileImage: "/images/services/tyre-hero1.jpg",
+                desktopImage: "/images/slides/tyre/2.jpg",
+                mobileImage: "/images/slides/tyre/2.jpg",
                 title: "Got your Tyre <br> Flat?",
                 details: "Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!",
                 buttonLabel: "Shop Now",
             },
             {
                 url: "/catalog/products",
-                desktopImage: "/images/slides/3.jpg",
-                mobileImage: "/images/slides/3.jpg",
-                // offer: '30% OFF',
+                desktopImage: "/images/slides/tyre/3.jpg",
+                mobileImage: "/images/slides/tyre/3.jpg",
                 title: "Big Choice Of <br>Wheel Tires",
                 details: "Any size and diameter, with or without spikes, <br>summer or winter, rain or snow.",
                 buttonLabel: "Shop Now",
