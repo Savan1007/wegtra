@@ -128,7 +128,7 @@ function MobileHeader() {
                                 className="mobile-search__input"
                                 placeholder={searchPlaceholder}
                             />
-                            <button
+                            {/* <button
                                 type="button"
                                 className="mobile-search__vehicle-picker"
                                 onClick={openVehiclePicker}
@@ -137,7 +137,7 @@ function MobileHeader() {
                                 <span className="mobile-search__vehicle-picker-label">
                                     <FormattedMessage id="BUTTON_SEARCH_SELECT_VEHICLE_MOBILE" />
                                 </span>
-                            </button>
+                            </button> */}
                             <button type="submit" className="mobile-search__button mobile-search__button--search">
                                 <Search20Svg />
                             </button>
