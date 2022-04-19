@@ -90,26 +90,26 @@ const HeroSection = () => {
         () => [
             {
                 url: "/catalog/batteries/products",
-                desktopImage: "/images/slides/battery/1.jpg",
-                mobileImage: "/images/slides/battery/1.jpg",
-                title: "Choice of Batteries at <br /> your doorstep!",
+                desktopImage: "/images/slides/windshield/1.jpg",
+                mobileImage: "/images/slides/windshield/1.jpg",
+                title: "Choice of Windshield <br /> at your doorstep!",
                 details:
                     "Enjoy a smooth journey and avoid potholes, thanks to the <br /> quality tyre services offered by Wegtra.",
                 buttonLabel: "Shop Now",
             },
             {
                 url: "/catalog/batteries/products",
-                desktopImage: "/images/slides/battery/2.jpg",
-                mobileImage: "/images/slides/battery/2.jpg",
-                title: "Got your Battery <br> Damaged?",
+                desktopImage: "/images/slides/windshield/2.jpg",
+                mobileImage: "/images/slides/windshield/2.jpg",
+                title: "Got your Windshield <br> Damaged?",
                 details: "Wegtra will help you any of your tyre needs. <br> Browse flat tyre toolkits now!",
                 buttonLabel: "Shop Now",
             },
             {
                 url: "/catalog/batteries/products",
-                desktopImage: "/images/slides/battery/3.jpg",
-                mobileImage: "/images/slides/battery/3.jpg",
-                title: "Big Choice Of <br>Batteries",
+                desktopImage: "/images/slides/windshield/3.jpg",
+                mobileImage: "/images/slides/windshield/3.jpg",
+                title: "Big Choice Of <br>Windshields",
                 details: "Any size and diameter, with or without spikes, <br>summer or winter, rain or snow.",
                 buttonLabel: "Shop Now",
             },
@@ -288,7 +288,7 @@ const index = () => {
                 <HeroSection />
                 <div className="col-md-12 mt-md-4 pt-sm-5">
                     <div className="site-heading text-center">
-                        <h2>Find Battery by Your Preference</h2>
+                        <h2>Find Windshield by Your Preference</h2>
                     </div>
                 </div>
                 <VehicleChooser />
