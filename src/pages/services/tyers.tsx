@@ -155,33 +155,41 @@ const TireBrands = () => {
     );
 };
 
-// const SearchByTireSize = () => {
-//     const widths = ["Select width", "17 Inches", "18 Inches", "19 Inches", "20 Inches"];
-//     const profiles = ["Select profile", "Profile 1", "Profile 2", "Profile 3", "Profile 4"];
-//     const rims = ["Select rim", "Rim 1", "Rim 2", "Rim 3"];
-//     return (
-//         <div className="model__container">
-//             <div className="py-2 mx-3">Search by Model</div>
-//             <div className="flex g-2">
-//                 <select className="form-control p-2 m-3" name="width" id="">
-//                     {widths.map((b) => {
-//                         return <option value={b}>{b}</option>;
-//                     })}
-//                 </select>
-//                 <select className="form-control p-2 m-3" name="profile" id="">
-//                     {profiles.map((b) => {
-//                         return <option value={b}>{b}</option>;
-//                     })}
-//                 </select>
-//                 <select className="form-control p-2 m-3" name="rim" id="">
-//                     {rims.map((b) => {
-//                         return <option value={b}>{b}</option>;
-//                     })}
-//                 </select>
-//             </div>
-//         </div>
-//     );
-// };
+const SearchByTireSize = () => {
+    const widths = ["Select width", "17 Inches", "18 Inches", "19 Inches", "20 Inches"];
+    const profiles = ["Select profile", "Profile 1", "Profile 2", "Profile 3", "Profile 4"];
+    const rims = ["Select rim", "Rim 1", "Rim 2", "Rim 3"];
+    return (
+        <div className="model__container">
+            <div className="py-2 mx-3">Search by Tire Size</div>
+            <div className="flex g-2">
+                <select className="form-control p-2 m-3" name="width" id="">
+                    {widths.map((b) => {
+                        return <option value={b}>{b}</option>;
+                    })}
+                </select>
+                <select className="form-control p-2 m-3" name="profile" id="">
+                    {profiles.map((b) => {
+                        return <option value={b}>{b}</option>;
+                    })}
+                </select>
+                <select className="form-control p-2 m-3" name="rim" id="">
+                    {rims.map((b) => {
+                        return <option value={b}>{b}</option>;
+                    })}
+                </select>
+            </div>
+            <div className="mobile__input m-3 pb-2">
+                <input type="text" className="form-control" placeholder="Enter Mobile Number..." required />
+            </div>
+            <AppLink href={`/catalog/tires-wheels/products`}>
+                <button type="submit" className="btn m-3 mb-sm-5 btn-dark">
+                    SEARCH
+                </button>
+            </AppLink>
+        </div>
+    );
+};
 
 const SearchByModel = () => {
     const brands = ["Select brand", "brandix", "red-get", "Sunset", "Specter"];
@@ -301,6 +309,8 @@ const VehicleChooser = () => {
 };
 
 const index = () => {
+    const [searchByBrand, setSearchByBrand] = useState<boolean>(true);
+
     return (
         <React.Fragment>
             <div className="p-md-5">
@@ -310,8 +320,23 @@ const index = () => {
                         <h2>Find Tyres by Your Preference</h2>
                     </div>
                 </div>
+
                 <VehicleChooser />
-                <SearchByModel />
+                <div className="col-sm-4 justify-content-between my-5 mx-auto">
+                    <button
+                        className={`btn ml-4 ${searchByBrand && "btn-dark"}`}
+                        onClick={() => setSearchByBrand(true)}
+                    >
+                        Search By Model
+                    </button>
+                    <button
+                        className={`btn ml-4 ${!searchByBrand && "btn-dark"}`}
+                        onClick={() => setSearchByBrand(false)}
+                    >
+                        Search By Tire Size
+                    </button>
+                </div>
+                {searchByBrand ? <SearchByModel /> : <SearchByTireSize />}
 
                 <div className="col-md-12 mt-md-4 pt-sm-5 mt-4">
                     <div className="site-heading text-center">
