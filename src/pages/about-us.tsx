@@ -88,7 +88,7 @@ function Page() {
                             </div>
                             <div style={{ maxWidth: "500px", textAlign: 'justify' }} >
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo aliquam ullam culpa! Dicta, similique! Illum nulla iusto sit consectetur iste voluptates id qui nemo adipisci quo ex accusantium quod asperiores soluta cupiditate, praesentium, ullam dolores possimus dicta aut laborum, fuga corporis saepe ratione. Fugit beatae, sapiente cum veritatis et blanditiis?
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
