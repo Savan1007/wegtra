@@ -160,7 +160,7 @@ const SearchByTireSize = () => {
     return (
         <div className="model__container">
             <div className="py-2 mx-3">Search by Tire Size</div>
-            <div className="flex g-2">
+            <div className="flex g-2 sm-flex-column">
                 <select className="form-control p-2 m-3" name="width" id="">
                     {widths.map((b) => {
                         return <option value={b}>{b}</option>;
@@ -271,15 +271,30 @@ const VehicleChooser = () => {
     const vehicles = [
         {
             key: "bike",
-            imageUrl: "/images/services/v-bike.png",
+            iconSvg: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path d="M15.5 6.937A6.997 6.997 0 0 1 19 13v8h-4.17a3.001 3.001 0 0 1-5.66 0H5v-8a6.997 6.997 0 0 1 3.5-6.063A3.974 3.974 0 0 1 8.125 6H5V4h3.126a4.002 4.002 0 0 1 7.748 0H19v2h-3.126c-.085.33-.212.645-.373.937zm-1.453 1.5C13.448 8.795 12.748 9 12 9a3.981 3.981 0 0 1-2.047-.563A5.001 5.001 0 0 0 7 13v6h2v-4a3 3 0 0 1 6 0v4h2v-6a5.001 5.001 0 0 0-2.953-4.563zM12 14a1 1 0 0 0-1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0-1-1zm0-7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                </svg>
+            ),
         },
         {
             key: "car",
-            imageUrl: "/images/services/v-car.png",
+            iconSvg: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path d="M19 20H5v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V11l2.48-5.788A2 2 0 0 1 6.32 4H17.68a2 2 0 0 1 1.838 1.212L22 11v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1zm1-7H4v5h16v-5zM4.176 11h15.648l-2.143-5H6.32l-2.143 5zM6.5 17a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                </svg>
+            ),
         },
         {
             key: "truck",
-            imageUrl: "/images/services/v-truck.png",
+            iconSvg: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path d="M8.965 18a3.5 3.5 0 0 1-6.93 0H1V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2h3l3 4.056V18h-2.035a3.5 3.5 0 0 1-6.93 0h-5.07zM15 7H3v8.05a3.5 3.5 0 0 1 5.663.95h5.674c.168-.353.393-.674.663-.95V7zm2 6h4v-.285L18.992 10H17v3zm.5 6a1.5 1.5 0 1 0 0-3.001 1.5 1.5 0 0 0 0 3.001zM7 17.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+                </svg>
+            ),
         },
     ];
 
@@ -288,7 +303,7 @@ const VehicleChooser = () => {
     };
 
     return (
-        <div className="vehicle__container">
+        <div className="vehicle__container my-5">
             <div className="vehicle__chooser">
                 {vehicles.map((v) => {
                     return (
@@ -297,7 +312,7 @@ const VehicleChooser = () => {
                             onClick={() => handleChange(v.key)}
                             className={selectedItem === v.key ? "selected" : ""}
                         >
-                            <img src={v.imageUrl} alt="" />
+                            <div>{v.iconSvg}</div>
                         </div>
                     );
                 })}
@@ -320,17 +335,11 @@ const index = () => {
                 </div>
 
                 <VehicleChooser />
-                <div className="col-sm-4 justify-content-between my-5 mx-auto">
-                    <button
-                        className={`btn ml-4 ${searchByBrand && "btn-dark"}`}
-                        onClick={() => setSearchByBrand(true)}
-                    >
+                <div className="col-md-4 col-xs-12 align-items-center justify-content-between my-5 mx-auto">
+                    <button className={`btn ${searchByBrand && "btn-dark"}`} onClick={() => setSearchByBrand(true)}>
                         Search By Model
                     </button>
-                    <button
-                        className={`btn ml-4 ${!searchByBrand && "btn-dark"}`}
-                        onClick={() => setSearchByBrand(false)}
-                    >
+                    <button className={`btn ${!searchByBrand && "btn-dark"}`} onClick={() => setSearchByBrand(false)}>
                         Search By Tire Size
                     </button>
                 </div>

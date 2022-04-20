@@ -575,16 +575,20 @@
 
     div {
         cursor: pointer;
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         display: grid;
         place-content: center;
     }
 
     .selected {
-        background: #c4c4c42d;
+        background: #000000be;
         border-radius: 50%;
         transition: all 0.1s ease;
+
+        svg {
+            fill: white;
+        }
     }
 }
 
