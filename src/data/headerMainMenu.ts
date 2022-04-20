@@ -30,27 +30,27 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
                 },
                 {
                     title: '2W service',
-                    url: '/servises/2w',
+                    url: '/services/2w',
                 },
                 {
                     title: 'EV store',
-                    url: '/service/ev',
+                    url: '/services/ev',
                 },
                 {
                     title: '4W service',
-                    url: '/service/4w',
+                    url: '/services/4w',
                 },
                 {
                     title: 'RTO service',
-                    url: '/service/rto',
+                    url: '/services/rto',
                 },
                 {
                     title: 'PDI',
-                    url: '/service/instructor',
+                    url: '/services/instructor',
                 },
                 {
                     title: 'TRAINING',
-                    url: '/service/training',
+                    url: '/services/training',
                 },
             ],
         },
