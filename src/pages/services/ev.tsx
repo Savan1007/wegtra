@@ -4,6 +4,7 @@ import BlockSlideshow from "~/components/blocks/BlockSlideshow";
 import Fquestions from "~/components/blocks/FAQ";
 import Client from "~/components/client";
 import AppLink from "~/components/shared/AppLink";
+import ComingSoon from "~/components/shared/ComingSoon";
 import SliderTestimonial from "~/components/testimonial";
 
 const HowItWorks = () => {
@@ -284,7 +285,8 @@ const VehicleChooser = () => {
 const index = () => {
     return (
         <React.Fragment>
-            <div className="p-md-5">
+            <ComingSoon />
+            {/* <div className="p-md-5">
                 <HeroSection />
                 <div className="col-md-12 mt-md-4 pt-sm-5">
                     <div className="site-heading text-center">
@@ -311,7 +313,7 @@ const index = () => {
                     <h2>Frequently Asked Questions</h2>
                 </div>
             </div>
-            <Fquestions></Fquestions>
+            <Fquestions></Fquestions> */}
         </React.Fragment>
     );
 };
