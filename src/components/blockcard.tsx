@@ -1,197 +1,77 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useState } from "react";
+import Slider from "react-slick";
 
 const Blockcard = () => {
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1500,
-        responsive: [
-            {
-                breakpoint: 1400,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                },
-            },
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
+        dots: true,
     };
+
+    const [servicesData, setServicesData] = useState([
+        {
+            iconSvg: "https://www.svgrepo.com/show/93449/tire.svg",
+            title: "Tyres",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. eum iusto?",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/232154/wiper.svg",
+            title: "Windshields",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/219567/helmet.svg",
+            title: "Helmets",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/387082/car-battery.svg",
+            title: "Battery",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/253047/motorcycle.svg",
+            title: "2W Services",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/53870/car.svg",
+            title: "4W Services",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/276103/electric-car.svg",
+            title: "EV Store",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+        {
+            iconSvg: "https://www.svgrepo.com/show/218785/steering-wheel.svg",
+            title: "PDI",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
+        },
+    ]);
+
     return (
         <React.Fragment>
-            <Slider {...settings}>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block img-center">
-                                <img alt="" src="/images/services/tyres.png" />
+            <div className="services__wrapper my-5">
+                {servicesData.map((s, idx) => {
+                    return (
+                        <div key={idx} className="services__item">
+                            <div className="d-flex justify-content-center">
+                                <img src={s.iconSvg} alt="" width={"50px"} />
                             </div>
-                            <div className='content_block'>
-                                <h3>Tyres</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
+                            <div className="d-flex flex-column justify-content center">
+                                <b className="text-center mt-3 mb-2">{s.title}</b>
+                                <p className="text-center">{s.description}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block img-center">
-                                <img alt="" src="/images/services/battery.png" />
-                            </div>
-                            <div className='content_block'>
-                                <h3>Battery</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block img-center">
-                                <img alt="" src="/images/services/windshield.png"/>
-                                
-                            </div>
-                            <div className='content_block'>
-                                <h3>Windshield</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block img-center">
-                                <img alt="" src="/images/services/helmets.png" />
-                            </div>
-                            <div className='content_block'>
-                                <h3>Helmets</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block">
-                                <img alt="" src="/images/services/services.png" />
-                            </div>
-                            <div className='content_block'>
-                                <h3>2W Service</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block">
-                                <img alt="" src="/images/services/evstore.png" />
-                            </div>
-                            <div className='content_block'>
-                                <h3>EV Store</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="container-card-block">
-                    <div className="card_block">
-                        <div className="face face1">
-                            <div className="content_block">
-                                <img alt="" src="/images/services/services.png" />
-                            </div>
-                            <div className='content_block'>
-                                <h3>4W Service</h3>
-                            </div>
-                        </div>
-                        <div className="face face2">
-                            <div className="content_block">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quas cum cumque minus iste veritatis
-                                    provident at.
-                                </p>
-                                <a href="/">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-            </Slider>
+                    );
+                })}
+            </div>
         </React.Fragment>
     );
 };
