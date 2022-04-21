@@ -2,19 +2,34 @@
 import { delayResponse, error } from '~/fake-server/utils';
 import { IEditProfileData } from '~/api/base';
 import { IUser } from '~/interfaces/user';
+import axios from 'axios'
 
-export function accountSignIn(email: string, password: string): Promise<IUser> {
-    if (email === 'red-parts@example.com' && password === '123456') {
-        const user: IUser = {
-            email: 'red-parts@example.com',
-            phone: '38 972 588-42-36',
-            firstName: 'Ryan',
-            lastName: 'Ford',
-            avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
-        };
+export async function accountSignIn(email: string, password: string): Promise<IUser> {
 
-        return delayResponse(Promise.resolve(user));
+    const {data, status} = await axios.post('https://wegtra-api.herokuapp.com/api/v1/auth/login', {
+        email, password
+    })
+    if(status == 201){
+        return delayResponse(Promise.resolve({
+            email: data.email,
+            phone: '91 7865489214',
+            firstName: 'User',
+            lastName: 'Wegra',
+            avatar: 'https://wegtra-files.nyc3.digitaloceanspaces.com/user_wegtra.png',
+        }));
     }
+
+    // if (email === 'red-parts@example.com' && password === '123456') {
+    //     const user: IUser = {
+    //         email: 'red-parts@example.com',
+    //         phone: '38 972 588-42-36',
+    //         firstName: 'Ryan',
+    //         lastName: 'Ford',
+    //         avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
+    //     };
+
+    //     return delayResponse(Promise.resolve(user));
+    // }
 
     return delayResponse(() => error('AUTH_WRONG_PASSWORD'));
 }
