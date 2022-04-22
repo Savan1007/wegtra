@@ -56,6 +56,7 @@ export async function getProductsList(
     filterValues: IFilterValues = {},
 ): Promise<IProductsList> {
     const filters: AbstractFilterBuilder[] = [
+        // NEED TO CALCULATE - DANGER
         new CategoryFilterBuilder('category', 'Categories'),
         new VehicleFilterBuilder('vehicle', 'Vehicle'),
         new RangeFilterBuilder('price', 'Price'),
@@ -67,16 +68,17 @@ export async function getProductsList(
 
     const {data, status} = await axios.get(`${baseApi}/products/all`)
 
-    let products : IProduct[] = dbProducts
+    let products : IProduct[] = []
     // console.log(staus)
     if(status == 200){
         //DANGER
         products = makeProducts(data)
+        
+        filters.forEach((filter) => filter.makeItems(products, filterValues[filter.slug]));
     }
 
     
 
-    filters.forEach((filter) => filter.makeItems(products, filterValues[filter.slug]));
 
     // Calculate items count for filter values.
     filters.forEach((filter) => filter.calc(filters));
