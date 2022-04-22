@@ -86,8 +86,8 @@ const shopCategoriesDef: ICategoryDef[] = [
         ],
     },
     {
-        name: 'Windshield',
-        slug: 'windshield',
+        name: 'Windshields',
+        slug: 'windshields',
         image: '/images/categories/windshield.png',
         items: 356,
         children: [

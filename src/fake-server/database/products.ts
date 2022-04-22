@@ -12,7 +12,7 @@ import { shopCategoriesList } from '~/fake-server/database/categories';
 
 const getNextId = makeIdGenerator();
 
-function resolveProductAttributesDef(attributesDef: IProductAttributesDef): IProductAttribute[] {
+export function resolveProductAttributesDef(attributesDef: IProductAttributesDef): IProductAttribute[] {
     const attributes: IProductAttribute[] = [];
     const keys = Object.keys(attributesDef);
 
@@ -54,7 +54,7 @@ function resolveProductAttributesDef(attributesDef: IProductAttributesDef): IPro
     return attributes;
 }
 
-function makeProducts(defs: IProductDef[]): IProduct[] {
+export function makeProducts(defs: IProductDef[]): IProduct[] {
     return defs.map((def) => {
         let badges: string[] = [];
 
@@ -77,7 +77,7 @@ function makeProducts(defs: IProductDef[]): IProduct[] {
             brand = brands.find((x) => x.slug === def.brand) || brand;
         }
 
-        const categorySlugs: string[] = def.categories || ['tools-garage'];
+        const categorySlugs: string[] = /*def.categories ||*/ ['helmets' , 'windshields'];
         const categories = categorySlugs
             .map((categorySlug) => shopCategoriesList.find((x) => x.slug === categorySlug))
             .map((x) => (x ? prepareCategory(x) : null))
@@ -206,7 +206,7 @@ function makeProducts(defs: IProductDef[]): IProduct[] {
     });
 }
 
-const productsDef: IProductDef[] = [
+export const productsDef: IProductDef[] = [
     {
         name: 'Brandix Spark Plug Kit ASR-400',
         slug: 'brandix-spark-plug-kit-asr-400',

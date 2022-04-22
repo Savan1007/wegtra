@@ -7,7 +7,7 @@ import { getNextReviewId, reviews } from '~/fake-server/database/reviews';
 import { IProductsList, IProduct } from '~/interfaces/product';
 import { IReview } from '~/interfaces/review';
 import { prepareCategory } from '~/fake-server/endpoints/categories';
-import { products as dbProducts } from '~/fake-server/database/products';
+import { makeProducts, products as dbProducts } from '~/fake-server/database/products';
 import { RadioFilterBuilder } from '~/fake-server/filters/radio-filter-builder';
 import { RangeFilterBuilder } from '~/fake-server/filters/range-filter-builder';
 import { RatingFilterBuilder } from '~/fake-server/filters/rating-filter-builder';
@@ -31,6 +31,9 @@ import {
     IGetSearchSuggestionsOptions,
     IGetSearchSuggestionsResult,
 } from '~/api/base';
+import axios from 'axios';
+import {baseApi} from '../../../config.json'
+import { IProductDef } from '../interfaces/product-def';
 
 function getProducts(shift: number, categorySlug: string | null = null): IProduct[] {
     let shiftValue = shift;
@@ -48,7 +51,7 @@ function getProducts(shift: number, categorySlug: string | null = null): IProduc
     return [...dbProducts.slice(shiftValue), ...dbProducts.slice(0, shiftValue)];
 }
 
-export function getProductsList(
+export async function getProductsList(
     options: IListOptions = {},
     filterValues: IFilterValues = {},
 ): Promise<IProductsList> {
@@ -62,7 +65,16 @@ export function getProductsList(
         new ColorFilterBuilder('color', 'Color'),
     ];
 
-    let products = dbProducts.slice(0);
+    const {data, status} = await axios.get(`${baseApi}/products/all`)
+
+    let products : IProduct[] = dbProducts
+    // console.log(staus)
+    if(status == 200){
+        //DANGER
+        products = makeProducts(data)
+    }
+
+    
 
     filters.forEach((filter) => filter.makeItems(products, filterValues[filter.slug]));
 
@@ -70,12 +82,12 @@ export function getProductsList(
     filters.forEach((filter) => filter.calc(filters));
 
     // Apply filters to products list.
-    products = products.filter((product) => filters.reduce<boolean>((mr, filter) => mr && filter.test(product), true));
+    products = products.filter((product : any) => filters.reduce<boolean>((mr, filter) => mr && filter.test(product), true));
 
     const sort = options?.sort || 'default';
 
     // Sort items array.
-    products = products.sort((a, b) => {
+    products = products.sort((a : any, b :any ) => {
         if (['name_asc', 'name_desc'].includes(sort)) {
             if (a.name === b.name) {
                 return 0;
@@ -115,8 +127,52 @@ export function getProductsList(
     }), 350);
 }
 
-export function getProductBySlug(slug: string): Promise<IProduct> {
-    const product = dbProducts.find((x) => x.slug === slug);
+export async function getProductBySlug(slug: string): Promise<IProduct> {
+    var product = dbProducts.find((x) => x.slug === slug);
+
+    const {data , status} = await axios.get(`${baseApi}/products/${slug}`);
+    // console.log(data)
+    if(status != 400) {
+        // DANGER - IRFAN
+        product = {...data , options : [] , attributes : [] , 
+                type: {
+            slug: 'default',
+            name: 'Default',
+            attributeGroups: [
+                {
+                    name: 'General',
+                    slug: 'general',
+                    attributes: [
+                        'speed',
+                        'power-source',
+                        'battery-cell-type',
+                        'voltage',
+                        'battery-capacity',
+                        'material',
+                        'engine-type',
+                    ],
+                },
+                {
+                    name: 'Dimensions',
+                    slug: 'dimensions',
+                    attributes: [
+                        'length',
+                        'width',
+                        'height',
+                    ],
+                },
+            ],
+            },
+            compareAtPrice : 999,
+            categories : ['helmets'], brand : {
+                slug: 'brandix',
+                name: 'Brandix',
+                image: '',
+                country: 'JP',
+            },
+            excerpt: "Many philosophical debates that began in ancient times are still debated today. In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge."
+    }
+    }
 
     if (!product) {
         return error('Page Not Found');
