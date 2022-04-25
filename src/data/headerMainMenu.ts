@@ -60,7 +60,7 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
     },
     {
         title: 'Shop',
-        url: '/demo/shop/shop-grid-4-sidebar',
+        url: '/catalog/products',
         submenu: {
             type: 'megamenu',
             size: 'nl',

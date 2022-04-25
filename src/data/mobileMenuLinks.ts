@@ -9,7 +9,7 @@ const dataMobileMenuLinks: IMobileMenuLink[] = [
     },
     {
         title: 'Shop',
-        url: '/demo/shop/shop-grid-4-sidebar',
+        url: '/catalog/products',
         submenu: [
             {
                 title: 'Helmets',

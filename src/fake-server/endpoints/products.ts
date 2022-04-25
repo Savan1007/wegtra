@@ -61,15 +61,21 @@ export async function getProductsList(
         new VehicleFilterBuilder('vehicle', 'Vehicle'),
         new RangeFilterBuilder('price', 'Price'),
         new CheckFilterBuilder('brand', 'Brand'),
-        new RadioFilterBuilder('discount', 'With Discount'),
+        // new RadioFilterBuilder('discount', 'With Discount'),
         new RatingFilterBuilder('rating', 'Rating'),
         new ColorFilterBuilder('color', 'Color'),
     ];
 
-    const {data, status} = await axios.get(`${baseApi}/products/all`)
+    let requestUri = `${baseApi}/products/all`
+    if(filterValues?.category) {
+        console.log(filterValues.category)
+        requestUri = `${baseApi}/products/category/${filterValues?.category}`
+    }
+
+    const {data, status} = await axios.get(requestUri)
 
     let products : IProduct[] = []
-    // console.log(staus)
+
     if(status == 200){
         //DANGER
         products = makeProducts(data)
@@ -136,7 +142,9 @@ export async function getProductBySlug(slug: string): Promise<IProduct> {
     // console.log(data)
     if(status != 400) {
         // DANGER - IRFAN
-        product = {...data , options : [] , attributes : [] , 
+        product = {...data , options : [{
+            type : 'default'
+        }] , attributes : [] , 
                 type: {
             slug: 'default',
             name: 'Default',

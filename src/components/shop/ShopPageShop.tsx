@@ -1,27 +1,27 @@
 // react
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from "react";
 // third-party
-import classNames from 'classnames';
-import { useIntl } from 'react-intl';
-import { useRouter } from 'next/router';
+import classNames from "classnames";
+import { useIntl } from "react-intl";
+import { useRouter } from "next/router";
 // application
-import BlockHeader from '~/components/blocks/BlockHeader';
-import BlockSpace from '~/components/blocks/BlockSpace';
-import ProductsView from '~/components/shop/ProductsView';
-import ShopSidebar from '~/components/shop/ShopSidebar';
-import url from '~/services/url';
-import { getCategoryParents } from '~/services/utils';
-import { buildQuery } from '~/store/shop/shopHelpers';
-import { CurrentVehicleScopeProvider } from '~/services/current-vehicle';
-import { ILink } from '~/interfaces/link';
-import { SidebarProvider } from '~/services/sidebar';
-import { useShop } from '~/store/shop/shopHooks';
+import BlockHeader from "~/components/blocks/BlockHeader";
+import BlockSpace from "~/components/blocks/BlockSpace";
+import ProductsView from "~/components/shop/ProductsView";
+import ShopSidebar from "~/components/shop/ShopSidebar";
+import url from "~/services/url";
+import { getCategoryParents } from "~/services/utils";
+import { buildQuery } from "~/store/shop/shopHelpers";
+import { CurrentVehicleScopeProvider } from "~/services/current-vehicle";
+import { ILink } from "~/interfaces/link";
+import { SidebarProvider } from "~/services/sidebar";
+import { useShop } from "~/store/shop/shopHooks";
 import {
     IShopPageGridLayout,
     IShopPageLayout,
     IShopPageOffCanvasSidebar,
     IShopPageSidebarPosition,
-} from '~/interfaces/pages';
+} from "~/interfaces/pages";
 
 interface Props {
     layout: IShopPageLayout;
@@ -30,11 +30,7 @@ interface Props {
 }
 
 function ShopPageShop(props: Props) {
-    const {
-        layout,
-        gridLayout,
-        sidebarPosition = 'start',
-    } = props;
+    const { layout, gridLayout, sidebarPosition = "start" } = props;
     const intl = useIntl();
     const router = useRouter();
     const shopState = useShop();
@@ -50,18 +46,18 @@ function ShopPageShop(props: Props) {
         router.replace({ pathname: router.pathname, query }, undefined, { shallow: true }).then();
     }, [shopState.options, shopState.filters]);
 
-    const hasSidebar = ['grid-3-sidebar', 'grid-4-sidebar'].includes(gridLayout);
-    const offCanvasSidebar: IShopPageOffCanvasSidebar = [
-        'grid-4-full',
-        'grid-5-full',
-        'grid-6-full',
-    ].includes(gridLayout) ? 'always' : 'mobile';
+    const hasSidebar = ["grid-3-sidebar", "grid-4-sidebar"].includes(gridLayout);
+    const offCanvasSidebar: IShopPageOffCanvasSidebar = ["grid-4-full", "grid-5-full", "grid-6-full"].includes(
+        gridLayout
+    )
+        ? "always"
+        : "mobile";
 
     const pageHeader = useMemo(() => {
-        let pageTitle = intl.formatMessage({ id: 'HEADER_SHOP' });
+        let pageTitle = intl.formatMessage({ id: "HEADER_SHOP" });
         const breadcrumb: ILink[] = [
-            { title: intl.formatMessage({ id: 'LINK_HOME' }), url: url.home() },
-            { title: intl.formatMessage({ id: 'LINK_SHOP' }), url: url.shop() },
+            { title: intl.formatMessage({ id: "LINK_HOME" }), url: url.home() },
+            { title: intl.formatMessage({ id: "LINK_SHOP" }), url: url.shop() },
         ];
 
         if (shopState.category) {
@@ -81,12 +77,10 @@ function ShopPageShop(props: Props) {
         return null;
     }
 
-    const sidebar = (
-        <ShopSidebar offcanvas={offCanvasSidebar} />
-    );
+    const sidebar = <ShopSidebar offcanvas={offCanvasSidebar} />;
 
-    const blockSplitClasses = classNames('block-split', {
-        'block-split--has-sidebar': hasSidebar,
+    const blockSplitClasses = classNames("block-split", {
+        "block-split--has-sidebar": hasSidebar,
     });
 
     return (
@@ -96,11 +90,11 @@ function ShopPageShop(props: Props) {
                     {pageHeader}
 
                     <div className={blockSplitClasses}>
-                        {offCanvasSidebar === 'always' && sidebar}
+                        {offCanvasSidebar === "always" && sidebar}
 
                         <div className="container">
                             <div className="block-split__row row no-gutters">
-                                {sidebarPosition === 'start' && hasSidebar && (
+                                {sidebarPosition === "start" && hasSidebar && (
                                     <div className="block-split__item block-split__item-sidebar col-auto">
                                         {sidebar}
                                     </div>
@@ -116,7 +110,7 @@ function ShopPageShop(props: Props) {
                                     </div>
                                 </div>
 
-                                {sidebarPosition === 'end' && hasSidebar && (
+                                {sidebarPosition === "end" && hasSidebar && (
                                     <div className="block-split__item block-split__item-sidebar col-auto">
                                         {sidebar}
                                     </div>

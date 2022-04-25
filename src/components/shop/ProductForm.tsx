@@ -1,12 +1,12 @@
 // react
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 // third-party
-import classNames from 'classnames';
-import { UncontrolledTooltip } from 'reactstrap';
-import { useFormContext } from 'react-hook-form';
+import classNames from "classnames";
+import { UncontrolledTooltip } from "reactstrap";
+import { useFormContext } from "react-hook-form";
 // application
-import { colorType } from '~/services/color';
-import { IProductOption } from '~/interfaces/product';
+import { colorType } from "~/services/color";
+import { IProductOption } from "~/interfaces/product";
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
     options: IProductOption[];
@@ -14,23 +14,18 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 function ProductForm(props: Props) {
-    const {
-        options,
-        namespace,
-        className,
-        ...rootProps
-    } = props;
+    const { options, namespace, className, ...rootProps } = props;
     const { register } = useFormContext();
-    const ns = useMemo(() => (namespace ? `${namespace}.` : ''), [namespace]);
+    const ns = useMemo(() => (namespace ? `${namespace}.` : ""), [namespace]);
 
     const optionsTemplate = options.map((option, optionIdx) => (
         <div key={optionIdx} className="product-form__row">
             <div className="product-form__title">{option.name}</div>
             <div className="product-form__control">
-                {option.type === 'default' && (
+                {option.type === "default" && (
                     <div className="input-radio-label">
                         <div className="input-radio-label__list">
-                            {option.values.map((value, valueIdx) => (
+                            {option?.values?.map((value, valueIdx) => (
                                 <label key={valueIdx} className="input-radio-label__item">
                                     <input
                                         type="radio"
@@ -45,14 +40,14 @@ function ProductForm(props: Props) {
                         </div>
                     </div>
                 )}
-                {option.type === 'color' && (
+                {option.type === "color" && (
                     <div className="input-radio-color">
                         <div className="input-radio-color__list">
-                            {option.values.map((value, valueIdx) => (
+                            {option?.values?.map((value, valueIdx) => (
                                 <React.Fragment key={valueIdx}>
                                     <label
-                                        className={classNames('input-radio-color__item', {
-                                            'input-radio-color__item--white': colorType(value.color) === 'white',
+                                        className={classNames("input-radio-color__item", {
+                                            "input-radio-color__item--white": colorType(value.color) === "white",
                                         })}
                                         id={`product-option-${optionIdx}-${valueIdx}`}
                                         style={{ color: value.color }}
@@ -82,13 +77,11 @@ function ProductForm(props: Props) {
         </div>
     ));
 
-    const rootClasses = classNames('product-form', className);
+    const rootClasses = classNames("product-form", className);
 
     return (
         <div className={rootClasses} {...rootProps}>
-            <div className="product-form__body">
-                {optionsTemplate}
-            </div>
+            <div className="product-form__body">{optionsTemplate}</div>
         </div>
     );
 }
