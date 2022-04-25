@@ -206,6 +206,9 @@ export function Search() {
                 }
             });
         }
+        else {
+            setCity("Select City")
+        }
     } , [])
 
     return (

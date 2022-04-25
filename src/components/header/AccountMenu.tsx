@@ -59,7 +59,8 @@ function AccountMenu(props: Props) {
                             className={classNames('form-control', 'form-control-sm', {
                                 'is-invalid': signInForm.errors.email,
                             })}
-                            placeholder="customer@example.com"
+                            placeholder="Email"
+                            // placeholder="customer@example.com"
                             {...signInForm.register('email', { required: true, validate: { email: validateEmail } })}
                         />
                         <div className="invalid-feedback">
@@ -86,7 +87,8 @@ function AccountMenu(props: Props) {
                                 className={classNames('form-control', 'form-control-sm', {
                                     'is-invalid': signInForm.errors.password,
                                 })}
-                                placeholder={intl.formatMessage({ id: 'INPUT_PASSWORD_PLACEHOLDER' })}
+                                placeholder="Password"
+                                // placeholder={intl.formatMessage({ id: 'INPUT_PASSWORD_PLACEHOLDER' })}
                                 {...signInForm.register('password', { required: true })}
                             />
                             <AppLink href={url.passwordRecovery()} className="account-menu__form-forgot-link">
