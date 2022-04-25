@@ -37,7 +37,7 @@ import { IProductDef } from '../interfaces/product-def';
 
 function getProducts(shift: number, categorySlug: string | null = null): IProduct[] {
     let shiftValue = shift;
-
+    console.log(categorySlug + "------------------------")
     switch (categorySlug) {
     case 'tires-wheels':
     case 'power-tools': shiftValue += 5; break;
@@ -56,6 +56,7 @@ export async function getProductsList(
     filterValues: IFilterValues = {},
 ): Promise<IProductsList> {
     const filters: AbstractFilterBuilder[] = [
+        // NEED TO CALCULATE - DANGER
         new CategoryFilterBuilder('category', 'Categories'),
         new VehicleFilterBuilder('vehicle', 'Vehicle'),
         new RangeFilterBuilder('price', 'Price'),
@@ -67,16 +68,17 @@ export async function getProductsList(
 
     const {data, status} = await axios.get(`${baseApi}/products/all`)
 
-    let products : IProduct[] = dbProducts
+    let products : IProduct[] = []
     // console.log(staus)
     if(status == 200){
         //DANGER
         products = makeProducts(data)
+        
+        filters.forEach((filter) => filter.makeItems(products, filterValues[filter.slug]));
     }
 
     
 
-    filters.forEach((filter) => filter.makeItems(products, filterValues[filter.slug]));
 
     // Calculate items count for filter values.
     filters.forEach((filter) => filter.calc(filters));
@@ -163,14 +165,7 @@ export async function getProductBySlug(slug: string): Promise<IProduct> {
                 },
             ],
             },
-            compareAtPrice : 999,
-            categories : ['helmets'], brand : {
-                slug: 'brandix',
-                name: 'Brandix',
-                image: '',
-                country: 'JP',
-            },
-            excerpt: "Many philosophical debates that began in ancient times are still debated today. In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge."
+            categories: ['tyres']
     }
     }
 

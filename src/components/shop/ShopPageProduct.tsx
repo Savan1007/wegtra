@@ -369,25 +369,23 @@ function ShopPageProduct(props: Props) {
                                                 </div>
                                             )}
 
-                                            {featuredAttributes.length > 0 && (
+                                            {(
                                                 <div className="product__features">
                                                     <div className="product__features-title">
                                                         <FormattedMessage id="TEXT_KEY_FEATURES" />
                                                         :
                                                     </div>
+                                                    {/* DANGERR */}
                                                     <ul>
-                                                        {featuredAttributes.map((attribute, index) => (
-                                                            <li key={index}>
-                                                                {attribute.name}
-                                                                {': '}
-                                                                <span>
-                                                                    {attribute.values
-                                                                        .map((value) => value.name)
-                                                                        .join(', ')}
-                                                                </span>
-                                                            </li>
-                                                        ))}
-
+                                                        {
+                                                            product.keyFeatures.map((feature: any) => {
+                                                                return <li>
+                                                                    {
+                                                                        feature
+                                                                    }
+                                                                </li>
+                                                            })
+                                                        }
                                                     </ul>
                                                     <div className="product__features-link">
                                                         <AppLink href={{ href: { hash: 'product-tab-specification' } }}>

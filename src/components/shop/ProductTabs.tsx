@@ -56,7 +56,7 @@ function ProductTabs(props: Props) {
         {
             id: 'product-tab-specification',
             title: intl.formatMessage({ id: 'TEXT_TAB_SPECIFICATION' }),
-            content: (<Specification groups={spec} />),
+            content: (<Specification data={product.typeHtml} />),
         },
         {
             id: 'product-tab-reviews',

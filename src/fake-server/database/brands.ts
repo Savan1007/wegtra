@@ -5,7 +5,7 @@ import { IBrand } from '~/interfaces/brand';
 
 export const brands: IBrand[] = [
     {
-        slug: 'aim-parts',
+        slug: 'appolo-tyres',
         name: 'AimParts',
         country: 'DE',
         image: '/images/brands/brand-1.png',

@@ -6,15 +6,15 @@ import { FormattedMessage } from 'react-intl';
 import { IProductAttributeGroup } from '~/interfaces/product';
 
 interface Props {
-    groups: IProductAttributeGroup[];
+    data: any;
 }
 
 function Specification(props: Props) {
-    const { groups } = props;
+    const { data } = props;
 
     return (
         <div className="spec">
-            {groups.map((group, groupIndex) => (
+            {/* {groups.map((group, groupIndex) => (
                 <div key={groupIndex} className="spec__section">
                     <h4 className="spec__section-title">{group.name}</h4>
                     {group.attributes.map((attribute, attributeIndex) => (
@@ -26,9 +26,11 @@ function Specification(props: Props) {
                         </div>
                     ))}
                 </div>
-            ))}
-            <div className="spec__disclaimer">
-                <FormattedMessage id="TEXT_PRODUCT_DISCLAIMER" />
+            ))} */}
+            <div className="spec__disclaimer" dangerouslySetInnerHTML={{
+                __html : data
+            }}>
+                
             </div>
         </div>
     );

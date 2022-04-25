@@ -1,0 +1,59 @@
+.faq-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1% 5%;
+}
+
+.faq-container .img-faq {
+  width: 50%;
+  border: 2px solid gray;
+}
+
+.faq-container * {
+  margin: 20px;
+}
+
+.faq {
+  max-width: 900px;
+  margin: 20px auto;
+  /* Style the buttons that are used to open and close the accordion panel */
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  /* Style the accordion panel. Note: hidden by default */
+}
+
+.faq .accordion {
+  border: 2px solid whitesmoke !important;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 5px;
+  margin: 2px;
+  background: transparent;
+}
+
+.faq .active,
+.faq .accordion:hover {
+  background-color: #1d1d1d;
+  color: white;
+}
+
+.faq .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+/*# sourceMappingURL=faq.css.map */
