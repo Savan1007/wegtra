@@ -1,3 +1,5 @@
+import { IBrand } from "~/interfaces/brand";
+
 export interface IProductAttributesDef {
     [slug: string]: string | string[] | [true, string, ...string[]];
 }
@@ -13,7 +15,7 @@ export interface IProductDef {
     rating: number;
     reviews: number;
     availability: string;
-    brand?: string;
+    brand?: any;
     categories?: string[];
     attributes?: IProductAttributesDef;
     compatibility?: 'all' | 'unknown' | number[];

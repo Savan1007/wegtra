@@ -73,11 +73,11 @@ export function makeProducts(defs: IProductDef[]): IProduct[] {
             country: 'JP',
         };
 
-        if (def.brand) {
-            brand = brands.find((x) => x.slug === def.brand) || brand;
+        if (def.brand) {    
+            brand = brands.find((x) => x.slug === (def.brand)) || brand;
         }
 
-        const categorySlugs: string[] = /*def.categories ||*/ ['helmets' , 'windshields'];
+        const categorySlugs: string[] = def.categories || []
         const categories = categorySlugs
             .map((categorySlug) => shopCategoriesList.find((x) => x.slug === categorySlug))
             .map((x) => (x ? prepareCategory(x) : null))

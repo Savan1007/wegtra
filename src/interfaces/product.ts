@@ -99,6 +99,8 @@ export interface IProduct {
     attributes: IProductAttribute[];
     options: IProductOption[];
     customFields?: ICustomFields;
+    typeHtml? : any,
+    keyFeatures? : any
 }
 
 export type IProductsList =

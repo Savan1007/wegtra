@@ -37,7 +37,7 @@ import { IProductDef } from '../interfaces/product-def';
 
 function getProducts(shift: number, categorySlug: string | null = null): IProduct[] {
     let shiftValue = shift;
-
+    console.log(categorySlug + "------------------------")
     switch (categorySlug) {
     case 'tires-wheels':
     case 'power-tools': shiftValue += 5; break;
@@ -165,14 +165,7 @@ export async function getProductBySlug(slug: string): Promise<IProduct> {
                 },
             ],
             },
-            compareAtPrice : 999,
-            categories : ['helmets'], brand : {
-                slug: 'brandix',
-                name: 'Brandix',
-                image: '',
-                country: 'JP',
-            },
-            excerpt: "Many philosophical debates that began in ancient times are still debated today. In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge."
+            categories: ['tyres']
     }
     }
 
