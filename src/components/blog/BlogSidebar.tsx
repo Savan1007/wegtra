@@ -1,20 +1,20 @@
 // react
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from "react";
 // third-party
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 // application
-import WidgetAboutUs from '~/components/widgets/WidgetAboutUs';
-import WidgetCategories from '~/components/widgets/WidgetCategories';
-import WidgetComments from '~/components/widgets/WidgetComments';
-import WidgetNewsletter from '~/components/widgets/WidgetNewsletter';
-import WidgetPosts from '~/components/widgets/WidgetPosts';
-import WidgetSearch from '~/components/widgets/WidgetSearch';
-import WidgetTags from '~/components/widgets/WidgetTags';
-import { blogApi } from '~/api';
-import { ICategory } from '~/interfaces/category';
+import WidgetAboutUs from "~/components/widgets/WidgetAboutUs";
+import WidgetCategories from "~/components/widgets/WidgetCategories";
+import WidgetComments from "~/components/widgets/WidgetComments";
+import WidgetNewsletter from "~/components/widgets/WidgetNewsletter";
+import WidgetPosts from "~/components/widgets/WidgetPosts";
+import WidgetSearch from "~/components/widgets/WidgetSearch";
+import WidgetTags from "~/components/widgets/WidgetTags";
+import { blogApi } from "~/api";
+import { ICategory } from "~/interfaces/category";
 // data
-import dataBlogPosts from '~/data/blogPosts';
-import dataBlogWidgetComments from '~/data/blogWidgetComments';
+import dataBlogPosts from "~/data/blogPosts";
+import dataBlogWidgetComments from "~/data/blogWidgetComments";
 
 function BlogSidebar() {
     const [categories, setCategories] = useState<ICategory[]>([]);
@@ -41,22 +41,14 @@ function BlogSidebar() {
         <React.Fragment>
             <WidgetSearch />
             <WidgetAboutUs />
-            <WidgetCategories
+            {/* <WidgetCategories
                 widgetTitle={<FormattedMessage id="HEADER_CATEGORIES" />}
                 categories={categories}
-            />
-            <WidgetPosts
-                widgetTitle="Latest Posts"
-                posts={posts}
-            />
+            /> */}
+            {/* <WidgetPosts widgetTitle="Latest Posts" posts={posts} /> */}
             <WidgetNewsletter />
-            <WidgetComments
-                widgetTitle="Latest Comments"
-                comments={comments}
-            />
-            <WidgetTags
-                widgetTitle="Tags Cloud"
-            />
+            {/* <WidgetComments widgetTitle="Latest Comments" comments={comments} /> */}
+            <WidgetTags widgetTitle="Tags Cloud" />
         </React.Fragment>
     );
 }

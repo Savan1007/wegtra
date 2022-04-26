@@ -1,14 +1,11 @@
 // react
-import React from 'react';
+import { useRouter } from "next/router";
+import React from "react";
 // application
-import BlogPagePost from '~/components/blog/BlogPagePost';
+import BlogPagePost from "~/components/blog/BlogPagePost";
 
 function Page() {
-    return (
-        <BlogPagePost
-            featuredImage
-        />
-    );
+    return <BlogPagePost featuredImage />;
 }
 
 export default Page;

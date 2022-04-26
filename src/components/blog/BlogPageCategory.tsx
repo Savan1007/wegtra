@@ -1,17 +1,19 @@
 // react
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 // third-party
-import classNames from 'classnames';
+import classNames from "classnames";
 // application
-import BlockHeader from '~/components/blocks/BlockHeader';
-import BlockSpace from '~/components/blocks/BlockSpace';
-import BlogSidebar from '~/components/blog/BlogSidebar';
-import PageTitle from '~/components/shared/PageTitle';
-import Pagination from '~/components/shared/Pagination';
-import PostCard, { IPostCardLayout } from '~/components/shared/PostCard';
-import { IBlogPageLayout, IBlogPageSidebarPosition } from '~/interfaces/pages';
+import BlockHeader from "~/components/blocks/BlockHeader";
+import BlockSpace from "~/components/blocks/BlockSpace";
+import BlogSidebar from "~/components/blog/BlogSidebar";
+import PageTitle from "~/components/shared/PageTitle";
+import Pagination from "~/components/shared/Pagination";
+import PostCard, { IPostCardLayout } from "~/components/shared/PostCard";
+import { IBlogPageLayout, IBlogPageSidebarPosition } from "~/interfaces/pages";
 // data
-import dataBlogPosts from '~/data/blogPosts';
+import dataBlogPosts from "~/data/blogPosts";
+import axios from "axios";
+import { baseApi } from "../../../config.json";
 
 interface Props {
     layout: IBlogPageLayout;
@@ -19,14 +21,27 @@ interface Props {
 }
 
 const cardLayoutMap: Record<IBlogPageLayout, IPostCardLayout> = {
-    classic: 'grid',
-    list: 'list',
-    grid: 'grid-sm',
+    classic: "grid",
+    list: "list",
+    grid: "grid-sm",
 };
 
 function BlogPageCategory(props: Props) {
     const { layout, sidebarPosition } = props;
     const [page, setPage] = useState(1);
+
+    const [posts, setPosts] = useState<any>([]);
+
+    const fetchBlogs = async () => {
+        const { data, status } = await axios.get(`${baseApi}/blogs`);
+        if (status == 200 && data) {
+            setPosts(data);
+        }
+    };
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
 
     return (
         <React.Fragment>
@@ -35,16 +50,16 @@ function BlogPageCategory(props: Props) {
             <BlockHeader
                 pageTitle="Latest News"
                 breadcrumb={[
-                    { title: 'Home', url: '' },
-                    { title: 'Breadcrumb', url: '' },
-                    { title: 'Current Page', url: '' },
+                    { title: "Home", url: "" },
+                    { title: "Breadcrumb", url: "" },
+                    { title: "Current Page", url: "" },
                 ]}
             />
 
             <div className={`block blog-view blog-view--layout--${layout}`}>
                 <div className="container">
                     <div className="blog-view__body">
-                        {sidebarPosition === 'start' && (
+                        {sidebarPosition === "start" && (
                             <div className="blog-view__item blog-view__item-sidebar">
                                 <BlogSidebar />
                             </div>
@@ -52,19 +67,16 @@ function BlogPageCategory(props: Props) {
                         <div className="blog-view__item blog-view__item-posts">
                             <div className="block posts-view">
                                 <div
-                                    className={classNames('posts-view__list', 'posts-list', {
-                                        'posts-list--layout--classic': layout === 'classic',
-                                        'posts-list--layout--list': layout === 'list',
-                                        'posts-list--layout--grid-2': layout === 'grid',
+                                    className={classNames("posts-view__list", "posts-list", {
+                                        "posts-list--layout--classic": layout === "classic",
+                                        "posts-list--layout--list": layout === "list",
+                                        "posts-list--layout--grid-2": layout === "grid",
                                     })}
                                 >
                                     <div className="posts-list__body">
-                                        {dataBlogPosts.map((post, index) => (
+                                        {posts.map((post: any, index: number) => (
                                             <div key={index} className="posts-list__item">
-                                                <PostCard
-                                                    post={post}
-                                                    layout={cardLayoutMap[layout]}
-                                                />
+                                                <PostCard post={post} layout={cardLayoutMap[layout]} />
                                             </div>
                                         ))}
                                     </div>
@@ -74,7 +86,7 @@ function BlogPageCategory(props: Props) {
                                 </div>
                             </div>
                         </div>
-                        {sidebarPosition === 'end' && (
+                        {sidebarPosition === "end" && (
                             <div className="blog-view__item blog-view__item-sidebar">
                                 <BlogSidebar />
                             </div>
