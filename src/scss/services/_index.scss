@@ -828,3 +828,56 @@
         }
     }
 }
+
+.job__wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    max-height: 200px;
+    min-width: 100%;
+
+    h1 {
+        font-size: 22px;
+        padding-bottom: 0px !important;
+        margin: 0 !important;
+    }
+    p {
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .job__description {
+        display: flex;
+        padding: 20px;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 22px;
+            padding-bottom: 0px !important;
+            margin: 0 !important;
+        }
+        p {
+            color: gray;
+            font-weight: 400;
+            margin: 0;
+        }
+        .btn-outline-dark {
+            border: 1px solid black;
+        }
+    }
+
+    .job__footer {
+        background-color: rgba(202, 202, 202, 0.185);
+        display: flex;
+        padding: 20px;
+
+        i {
+            color: #777;
+        }
+
+        p {
+            font-weight: 500;
+            color: #777;
+        }
+    }
+}
