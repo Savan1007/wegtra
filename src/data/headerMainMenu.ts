@@ -130,7 +130,7 @@ const dataHeaderMainMenu: IMainMenuLink[] = [
                 },
                 {
                     title: 'Career',
-                    url: '/',
+                    url: '/careers',
                 },
             ],
         },
