@@ -762,6 +762,18 @@
 }
 
 @media screen and (max-width: 600px) {
+    .job__footer {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        min-height: 500px !important;
+        div {
+            margin-top: 5px;
+        }
+    }
+    .sm-mt-5 {
+        margin-top: 70px;
+    }
     .vehicle__chooser {
         flex-direction: column;
     }
