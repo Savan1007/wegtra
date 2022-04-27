@@ -5,6 +5,7 @@ import { baseApi } from "../../../config.json";
 import JobPost from "./JobPost";
 import moment from "moment";
 import { Modal } from "reactstrap";
+import { toast } from "react-toastify";
 
 interface Iprops {
     slug: string;
@@ -13,6 +14,11 @@ interface Iprops {
 const JobDetailView = (props: Iprops) => {
     const [job, setJob] = useState<any>();
     const [modal, setModal] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [contactNo, setContactNo] = useState<any>();
+    const [resume, setResume] = useState("");
+    const [fileurl, setFileUrl] = useState("");
 
     const fetchJobBySlug = async () => {
         const { data, status } = await axios.get(`${baseApi}/careers/` + props.slug);
@@ -24,36 +30,86 @@ const JobDetailView = (props: Iprops) => {
         fetchJobBySlug().then();
     }, []);
 
-    const handleSubmit = (e: any) => {
-        e.stopPropogation();
+    const handleSubmit = async (e: any) => {
+        const { status, data } = await axios.post(`${baseApi}/applications/new`, {
+            name,
+            email,
+            contactNo,
+            resume: fileurl,
+        });
+
+        if (status == 200) {
+            setModal(false);
+            toast.success("Application Submitted !", { theme: "colored" });
+        }
+    };
+
+    const handleFile = (e: any) => {
+        const formData = new FormData();
+        formData.append("file", e.target.files[0]);
+
+        axios
+            .post(`${baseApi}/uploads`, formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            })
+            .then((data) => {
+                setFileUrl(data.data.url);
+            });
     };
 
     return (
         <React.Fragment>
             <Modal isOpen={modal} centered>
                 <div className="bg-white p-5">
-                    <form onSubmit={handleSubmit}>
+                    <div>
                         <div className="flex-column d-flex">
-                            <input type="text" placeholder="Name" className="form-control my-3" required />
-                            <input type="text" placeholder="Email" className="form-control my-3" required />
-                            <input type="phone" placeholder="Contact Number" className="form-control my-3" required />
-                            <input type="file" className="my-3" />
+                            <input
+                                type="text"
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Name"
+                                className="form-control my-3"
+                                required
+                            />
+
+                            <input
+                                type="text"
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Email"
+                                className="form-control my-3"
+                                required
+                            />
+
+                            <input
+                                type="phone"
+                                onChange={(e) => setContactNo(e.target.value)}
+                                placeholder="Contact Number"
+                                className="form-control my-3"
+                                required
+                            />
+
+                            <input
+                                type="file"
+                                multiple={false}
+                                accept="application/pdf"
+                                onChange={handleFile}
+                                className="my-3"
+                            />
                             <div className="d-flex">
+                                <button type="submit" className="btn btn-dark mt-2 mr-3" onClick={handleSubmit} disabled={fileurl.length < 1}>
+                                    Apply
+                                </button>
                                 <button
-                                    type="submit"
-                                    className="btn btn-dark mt-2 mr-3"
+                                    className="btn btn-outline-danger mt-2"
+                                    type="reset"
                                     onClick={() => {
                                         setModal(false);
                                     }}
                                 >
-                                    Apply
-                                </button>
-                                <button className="btn btn-outline-danger mt-2" type="reset">
                                     Cancel
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </Modal>
             <BlockHeader
