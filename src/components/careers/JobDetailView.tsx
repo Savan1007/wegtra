@@ -36,6 +36,7 @@ const JobDetailView = (props: Iprops) => {
             email,
             contactNo,
             resume: fileurl,
+            jobId: job?._id,
         });
 
         if (status == 200) {
@@ -95,7 +96,12 @@ const JobDetailView = (props: Iprops) => {
                                 className="my-3"
                             />
                             <div className="d-flex">
-                                <button type="submit" className="btn btn-dark mt-2 mr-3" onClick={handleSubmit} disabled={fileurl.length < 1}>
+                                <button
+                                    type="submit"
+                                    className="btn btn-dark mt-2 mr-3"
+                                    onClick={handleSubmit}
+                                    disabled={fileurl.length < 1}
+                                >
                                     Apply
                                 </button>
                                 <button
