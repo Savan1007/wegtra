@@ -66,7 +66,7 @@ export async function getProductsList(
         new ColorFilterBuilder('color', 'Color'),
     ];
 
-    let requestUri = `${baseApi}/products/all`
+    let requestUri = `${baseApi}/products/published`
     if(filterValues?.category) {
         console.log(filterValues.category)
         requestUri = `${baseApi}/products/category/${filterValues?.category}`
